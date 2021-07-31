@@ -38,9 +38,10 @@
       padding-left: 1.5em;
 
       a {
+        font-family: var(--sans-serif-font-family);
         text-decoration: none;
         color: var(--navbar-item-color);
-        font-size: 14px;
+        font-size: 16px;
         &:hover {
           text-decoration: underline;
           text-decoration-color: var(--navbar--accent-color);
@@ -49,8 +50,8 @@
       }
 
       .item-name {
-        font-size: 14px;
-        font-weight: 100;
+        font-size: 16px;
+        // font-weight: 100;
         color: var(--navbar-item-color);
         cursor: pointer;
 
@@ -167,7 +168,7 @@
 }
 
 .desk .multi-level .item > .item-name > a {
-  font-size: 14px;
+  font-size: calc(16px + 0.2vw);
 }
 
 .desk .multi-level#ml1 {
@@ -175,12 +176,11 @@
     display: flex;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid #888;
   }
 
   .item-name > a {
     text-transform: uppercase;
-    font-weight: var(--strong-font-weight);
+    font-weight: var(--medium-font-weight);
     color: sngma-color("primary");
   }
 

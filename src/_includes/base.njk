@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{{ title }}</title>
     <link rel="preconnect" href="https://res.cloudinary.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
     {% if carousels %}
       <link rel="stylesheet" href="{{ '/utils/owl-css/owl.carousel.min.css' | url }}"/>
       <link rel="stylesheet" href="{{ '/utils/owl-css/owl.theme.default.min.css' | url }}"/>
@@ -383,8 +384,8 @@
       var vanillaSlideshow = document.getElementById("vanilla-slideshow-container");
 
       // Global variables
-      const navbar_bg_color_solid = "rgba(248, 133, 56, 1.0)";
-      const navbar_bg_color_trans = "rgba(248, 133, 56, 0.5)";
+      const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
+      const navbar_bg_color_trans = "rgba(10, 18, 113, 0)";
       const navbar_height = "100px";
       const navbar_height_onscroll = "60px";
       const navbar_desk_height = "120px";

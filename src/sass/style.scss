@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import "variables";
 
 html,
 body {
   min-height: fit-content;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--serif-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
@@ -37,11 +37,11 @@ img {
   }
 }
 
-@import "variables";
 @import "navbar";
 @import "navbar-desk";
 @import "vanillaSlideshow";
 // @import "hero";
+
 @import "hero-fixed";
 @import "content";
 @import "footer";
