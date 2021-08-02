@@ -37,9 +37,14 @@
       <div class="mobile">
         <input type="checkbox" id="menu" />
         <div class="navbar">
-          <a href="/"
-            ><img src="{{ '/img/logo.png' | url }}" alt="" class="logo"
-          /></a>
+          {% if homePage %}
+          <div>&nbsp;</div>
+          {% else %}
+          <a href="/">
+            DR SESHADRI<br />IYENGAR
+            <!-- <i class="fas fa-home"></i> -->
+          </a>
+          {% endif %}
           <label for="menu" id="ham-icon-wrapper">
             <div id="ham-icon"></div>
           </label>
@@ -206,63 +211,55 @@
       </div>
       <div class="desk">
         <div class="navbar">
-          <a href="/"
-            ><img src="{{ '/img/logo.png' | url }}" alt="" class="logo"
-          /></a>
+          {% if homePage %}
+          <div>&nbsp;</div>
+          {% else %}
+          <a href="/"> DR SESHADRI<br />IYENGAR </a>
+          {% endif %}
           <div class="menu-groups">
             <div class="multi-level" id="ml1">
               <div class="ml1-menu-section">
                 <div class="item">
                   <div class="item-name">
-                    <a href="/page-no-hero">Page No Hero</a>
-                    <ul>
-                      <li>
-                        <a href="/page-hero">Page Hero</a>
-                      </li>
-                      <li>
-                        <a href="/page-hero-carousel/#samhara"
-                          >Page Hero Carousel</a
-                        >
-                      </li>
-                      <li>
-                        <a href="/page-pullquote">Page Pullquote</a>
-                      </li>
-                      <li>
-                        <a href="/page-no-hero/#scrool"
-                          >Page Anchor Smooth Scroll</a
-                        >
-                      </li>
-                    </ul>
+                    <a href="#">ICFA</a>
                   </div>
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="#">Get Involved</a>
-                    <ul>
-                      <li>
-                        <a href="/">Volunteers</a>
-                      </li>
-                      <li>
-                        <a href="/">Interns</a>
-                      </li>
-                      <li>
-                        <a href="/">Corporates</a>
-                      </li>
-                      <li>
-                        <a href="/">Work with Us</a>
-                      </li>
-                    </ul>
+                    <a href="#">Training</a>
                   </div>
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="/contact-us/">Contact Us</a>
+                    <a href="#">Videos</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
+                    <a href="#">Productions</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
+                    <a href="/#contact">Contact</a>
                   </div>
                 </div>
               </div>
               <div class="button-bar">
                 <div class="button round">
-                  <a href="#"> DONATE </a>
+                  <a href="#">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </div>
+                <div class="button round">
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+                <div class="button round">
+                  <a href="#">
+                    <i class="fab fa-youtube"></i>
+                  </a>
                 </div>
               </div>
             </div>
@@ -270,79 +267,27 @@
             <div class="multi-level" id="ml2">
               <div class="item">
                 <div class="item-name">
-                  <a href="#">focus areas</a>
+                  <a href="#">profile</a>
                 </div>
               </div>
               <div class="item">
                 <div class="item-name">
-                  <a href="#">projects & campaigns</a>
-                  <ul>
-                    <li>
-                      <a href="#">Projects</a>
-                    </li>
-                    <li>
-                      <a href="#">Campaigns</a>
-                    </li>
-                  </ul>
+                  <a href="#">workshop</a>
                 </div>
               </div>
               <div class="item">
                 <div class="item-name">
-                  <a href="#">history & lessons learnt</a>
-                  <ul>
-                    <li>
-                      <div class="sub-item">
-                        <div class="item-name">
-                          <a href="#">History</a>
-                          <ul>
-                            <li>
-                              <a href="#">Organisational Milestones</a>
-                            </li>
-                            <li>
-                              <a href="#">Awards & Recognitions</a>
-                            </li>
-                            <li>
-                              <a href="#">Journey of Causes</a>
-                            </li>
-                            <li>
-                              <a href="#">Donor History</a>
-                            </li>
-                            <li>
-                              <a href="#">Alliances & Partnerships</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="#">Lessons Learnt</a>
-                    </li>
-                  </ul>
+                  <a href="#">reviews</a>
                 </div>
               </div>
               <div class="item">
                 <div class="item-name">
-                  <a href="#">reports & resources</a>
-                  <ul>
-                    <li>
-                      <div class="sub-item">
-                        <div class="item-name">
-                          <a href="#">Reports</a>
-                          <ul>
-                            <li>
-                              <a href="#">Project Reports</a>
-                            </li>
-                            <li>
-                              <a href="#">Financial Reports</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="#">Resources</a>
-                    </li>
-                  </ul>
+                  <a href="#">global work</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="item-name">
+                  <a href="#">press kit</a>
                 </div>
               </div>
             </div>
@@ -402,8 +347,6 @@
     ></script>
     {% endif %}
     <script>
-      var logoImgMob = document.getElementsByClassName("logo")[0];
-      var logoImgDesk = document.getElementsByClassName("logo")[1];
       var mobileElem = document.getElementsByClassName("mobile")[0];
       var navElem = document.getElementsByTagName("nav")[0];
       var navBarMobElem = document.getElementsByClassName("navbar")[0];
@@ -431,8 +374,6 @@
         let fromTop = window.scrollY;
 
         if (fromTop > 0) {
-          logoImgMob.style.height = "40px";
-          logoImgDesk.style.height = "60px";
           navBarMobElem.style.height = navbar_height_onscroll;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
@@ -443,8 +384,6 @@
 
         if (fromTop < 1) {
           if (!hamMenuElem.checked) {
-            logoImgMob.style.height = "80px";
-            logoImgDesk.style.height = "80px";
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
             navBarDeskElem.style.backgroundColor = navbar_bg_color_trans;
@@ -464,8 +403,6 @@
             contentElem.style.position = "fixed";
             navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
           }
-          logoImgMob.style.height = "40px";
-          logoImgDesk.style.height = "60px";
           navBarMobElem.style.height = navbar_height_onscroll;
           hamIcon.classList.toggle("ham-open");
         } else {
@@ -476,8 +413,6 @@
             contentElem.style.position = "static";
             navBarMobElem.style.backgroundColor = navbar_bg_color_trans;
           }
-          logoImgMob.style.height = "80px";
-          logoImgDesk.style.height = "80px";
           navBarMobElem.style.height = navbar_height;
           hamIcon.classList.toggle("ham-open");
         }

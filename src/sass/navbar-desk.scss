@@ -18,6 +18,17 @@
   background-color: var(--navbar-bg-color);
   transition: all 0.5s;
   z-index: var(--navbar-z-index);
+  > a {
+    font-size: 18px;
+    font-family: var(--sans-serif-font-family);
+    color: var(--navbar-item-color);
+    text-decoration: none;
+    text-align: center;
+    transition: color 0.75s;
+  }
+  > a:hover {
+    color: var(--accent-color-1);
+  }
 }
 
 .desk .navbar.trans {
@@ -27,11 +38,13 @@
 .desk .menu-groups {
   display: flex;
   flex-direction: column;
+  // min-width: max-content;
 
   .multi-level {
     display: flex;
-    justify-content: flex-end;
-    padding: 0.5em 0 0.25em;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75em 0 0.25em;
 
     .item {
       position: relative;
@@ -40,6 +53,7 @@
       a {
         font-family: var(--sans-serif-font-family);
         text-decoration: none;
+        text-transform: uppercase;
         color: var(--navbar-item-color);
         font-size: 16px;
         &:hover {
@@ -58,7 +72,9 @@
         ul {
           list-style: none;
           position: absolute;
-          top: 18px;
+          // 23px makes the dropdown menu stay
+          // when mouse moves onto it
+          top: 23px;
           width: max-content;
           height: fit-content;
           // keep top margin at 2px only
@@ -81,6 +97,7 @@
 
             & > a {
               text-transform: uppercase;
+              font-size: 16px;
             }
 
             &:first-child {
@@ -91,7 +108,7 @@
               .item-name {
                 & > a {
                   text-transform: uppercase;
-                  font-size: 14px;
+                  font-size: 16px;
                 }
                 ul {
                   position: static;
@@ -101,7 +118,7 @@
                     border: none;
                     & > a {
                       text-transform: none;
-                      font-size: 14px;
+                      font-size: 16px;
                       color: var(--navbar-subitem-color);
                     }
                   }
@@ -128,7 +145,7 @@
       justify-content: flex-end;
       padding-left: 1em;
       .button {
-        padding: 0 0.5em;
+        padding: 0;
       }
     }
   }
@@ -176,12 +193,12 @@
     display: flex;
     align-items: center;
     width: 100%;
+    border-bottom: 1px solid var(--very-dark-grey);
   }
 
   .item-name > a {
     text-transform: uppercase;
     font-weight: var(--medium-font-weight);
-    color: sngma-color("primary");
   }
 
   justify-content: flex-start;
@@ -190,7 +207,7 @@
   .button-bar {
     margin-left: auto;
     .button.round {
-      padding: 6px 20px;
+      padding: 6px 10px;
     }
     a {
       text-decoration: none;
@@ -200,5 +217,5 @@
 }
 
 .desk .multi-level#ml2 {
-  padding-top: 3px;
+  padding-top: 5px;
 }
