@@ -370,11 +370,14 @@
       var heroVideoButtonList = document.getElementsByClassName(
         "hero-video--buttons"
       )[0];
+      var heroMiscContent =
+        document.getElementsByClassName("hero-misc--content")[0];
       var ht = window.innerHeight;
       var a_third_ht = ht * 0.33;
 
       // Global variables
-      const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
+      // const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
+      const navbar_bg_color_solid = "rgba(0, 0, 0, 1.0)";
       const navbar_bg_color_trans = "rgba(10, 18, 113, 0)";
       const navbar_height = "100px";
       const navbar_height_onscroll = "60px";
@@ -474,13 +477,10 @@
           );
           if (navBarDeskElem) {
             // this solves the FOUC problem (flash of unstyled content)
-            tl.from(navBarDeskElem, { autoAlpha: 0 });
-            tl.fromTo(
-              navBarDeskElem,
-              { alpha: 0 },
-              { duration: 1, alpha: 1 },
-              ">"
-            );
+            tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
+          }
+          if (heroMiscContent) {
+            tl.from(heroMiscContent, { duration: 2, autoAlpha: 0 }, ">");
           }
         } else {
           if (navBarDeskElem) navBarDeskElem.style.visibility = "visible";

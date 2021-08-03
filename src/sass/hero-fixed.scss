@@ -94,6 +94,34 @@
   }
 }
 
+.hero-misc--content {
+  // this solves the FOUC problem (flash of unstyled content)
+  visibility: hidden;
+  position: absolute;
+  bottom: 10vh;
+  // left position same as padding on logo in navbar
+  left: 4em;
+  z-index: 5;
+  width: 5%;
+  display: flex;
+  flex-direction: column;
+
+  .hero-misc--top {
+    padding-bottom: 50px;
+  }
+
+  .hero-misc--bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .volume-icon {
+    align-self: flex-end;
+    font-size: calc(0.65em + 1vw);
+    color: var(--dark-grey);
+  }
+}
+
 .hero-text {
   position: absolute;
   bottom: 17vh;

@@ -110,6 +110,25 @@ homePage: true
       <div class="hero-video--button">Upcoming Performances</div>
     </div>
   </div>
+  <div class="hero-misc--content">
+    <div class="hero-misc--top">
+      <img
+        src="https://res.cloudinary.com/driyengar/image/upload/v1628017308/1-Nataraja_jexplx.png"
+        alt="Statue of Nataraja"
+      />
+    </div>
+    <div class="hero-misc--bottom">
+      <div class="scroll-indicator">
+        <img
+          src="{{ '/img/scroll-indicator.png' | url }}"
+          alt="scroll direction indicator"
+        />
+      </div>
+      <div class="volume-icon" onclick="toggleAudio()">
+        <i class="fas fa-volume-mute"></i>
+      </div>
+    </div>
+  </div>
   <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
 </div>
 {% endif %}
