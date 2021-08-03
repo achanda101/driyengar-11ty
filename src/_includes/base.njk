@@ -450,33 +450,21 @@
           return false;
         });
 
-        if (heroVideoText) {
-          gsap.registerEffect({
-            name: "fade",
-            defaults: { duration: 2 }, //defaults get applied to the "config" object passed to the effect below
-            effect: (targets, config) => {
-              return gsap.to(targets, {
-                duration: config.duration,
-                opacity: 0,
-              });
-            },
-          });
-          // gsap.effects.fade(".hero-video--text");
-          gsap.fromTo(
-            ".hero-video--text",
-            { alpha: 0 },
-            { duration: 2, alpha: 1 }
+        if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
+          let tl = gsap.timeline();
+          // insert exactly 3 seconds from the start of the timeline
+          tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 3);
+          // insert at the END of the previous animation
+          tl.fromTo(
+            heroVideoTagline,
+            { y: -30, alpha: 0 },
+            { duration: 2, y: 0, alpha: 1 },
+            ">"
           );
 
-          if (heroVideoTagline) {
-            // let tl = gsap.timeline();
-            // tl.fade(".hero-video--text", {duration: 3})
-            //   .fromTo(".hero-video--tagline", { y: -30 }, { duration: 2, y: 0 });
-            gsap.fromTo(
-              ".hero-video--tagline",
-              { y: -30 },
-              { duration: 2, y: 0 }
-            );
+          for (let index = 0; index < heroVideoButtonList.length; index++) {
+            const element = heroVideoButtonList[index];
+            tl.fromTo(element, { alpha: 0 }, { duration: 1, alpha: 1 }, ">");
           }
         }
       });
