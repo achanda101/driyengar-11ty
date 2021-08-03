@@ -88,6 +88,7 @@
       transition: background-color 0.5s;
       &:hover {
         background-color: var(--accent-color-2--lighter);
+        border: 2px solid var(--accent-color-2--lighter);
         cursor: pointer;
       }
     }

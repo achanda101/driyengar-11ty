@@ -364,10 +364,15 @@
       var heroVideoTagline = document.getElementsByClassName(
         "hero-video--tagline"
       )[0];
-      var heroVideoButtonList =
-        document.getElementsByClassName("hero-video--button");
+      var heroVideoButtonList = document.getElementsByClassName(
+        "hero-video--buttons"
+      )[0];
+      if (heroVideoText) heroVideoText.style.opacity = "0";
+      if (heroVideoTagline) heroVideoTagline.style.opacity = "0";
+      if (heroVideoButtonList) heroVideoButtonList.style.opacity = "0";
+      if (navBarDeskElem) navBarDeskElem.style.opacity = "0";
       var ht = window.innerHeight;
-      var half_ht = ht * 0.5;
+      var a_third_ht = ht * 0.33;
 
       // Global variables
       const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
@@ -382,7 +387,7 @@
       window.addEventListener("scroll", () => {
         let fromTop = window.scrollY;
 
-        if (fromTop > half_ht) {
+        if (fromTop > a_third_ht) {
           navBarMobElem.style.height = navbar_height_onscroll;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
@@ -395,7 +400,7 @@
         }
 
         // if (fromTop < 1) {
-        if (fromTop < half_ht) {
+        if (fromTop < a_third_ht) {
           if (!hamMenuElem.checked) {
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
@@ -461,11 +466,19 @@
             { duration: 2, y: 0, alpha: 1 },
             ">"
           );
-
-          for (let index = 0; index < heroVideoButtonList.length; index++) {
-            const element = heroVideoButtonList[index];
-            tl.fromTo(element, { alpha: 0 }, { duration: 1, alpha: 1 }, ">");
-          }
+          tl.fromTo(
+            heroVideoButtonList,
+            { alpha: 0 },
+            { duration: 1, alpha: 1 }
+          );
+          tl.fromTo(
+            navBarDeskElem,
+            { alpha: 0 },
+            { duration: 1, alpha: 1 },
+            ">"
+          );
+        } else {
+          navBarDeskElem.style.opacity = "1";
         }
       });
     </script>
