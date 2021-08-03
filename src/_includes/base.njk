@@ -358,6 +358,16 @@
       var vanillaSlideshow = document.getElementById(
         "vanilla-slideshow-container"
       );
+      var heroVideo = document.getElementById("heroVideo");
+      var heroVideoText =
+        document.getElementsByClassName("hero-video--text")[0];
+      var heroVideoTagline = document.getElementsByClassName(
+        "hero-video--tagline"
+      )[0];
+      var heroVideoButtonList =
+        document.getElementsByClassName("hero-video--button");
+      var ht = window.innerHeight;
+      var half_ht = ht * 0.5;
 
       // Global variables
       const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
@@ -372,22 +382,29 @@
       window.addEventListener("scroll", () => {
         let fromTop = window.scrollY;
 
-        if (fromTop > 0) {
+        if (fromTop > half_ht) {
           navBarMobElem.style.height = navbar_height_onscroll;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
           if (contentElem) {
             navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
           }
+          if (heroVideo) {
+            heroVideo.pause();
+          }
         }
 
-        if (fromTop < 1) {
+        // if (fromTop < 1) {
+        if (fromTop < half_ht) {
           if (!hamMenuElem.checked) {
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
             navBarDeskElem.style.backgroundColor = navbar_bg_color_trans;
             if (contentElem) {
               navBarMobElem.style.backgroundColor = navbar_bg_color_trans;
+            }
+            if (heroVideo) {
+              heroVideo.play();
             }
           }
         }
@@ -417,7 +434,7 @@
         }
       });
 
-      if (window.innerWidth > 799) {
+      if (ht > 799) {
         if (heroImage) {
           heroImage.style.marginTop = "-" + navbar_desk_height;
         }
@@ -427,11 +444,41 @@
         }
       }
 
-      // prevent download of images through mouse events
       $(document).ready(function () {
+        // prevent download of images through mouse events
         $("img").bind("contextmenu", function (e) {
           return false;
         });
+
+        if (heroVideoText) {
+          gsap.registerEffect({
+            name: "fade",
+            defaults: { duration: 2 }, //defaults get applied to the "config" object passed to the effect below
+            effect: (targets, config) => {
+              return gsap.to(targets, {
+                duration: config.duration,
+                opacity: 0,
+              });
+            },
+          });
+          // gsap.effects.fade(".hero-video--text");
+          gsap.fromTo(
+            ".hero-video--text",
+            { alpha: 0 },
+            { duration: 2, alpha: 1 }
+          );
+
+          if (heroVideoTagline) {
+            // let tl = gsap.timeline();
+            // tl.fade(".hero-video--text", {duration: 3})
+            //   .fromTo(".hero-video--tagline", { y: -30 }, { duration: 2, y: 0 });
+            gsap.fromTo(
+              ".hero-video--tagline",
+              { y: -30 },
+              { duration: 2, y: 0 }
+            );
+          }
+        }
       });
     </script>
 
@@ -440,20 +487,22 @@
     {% endif %} {% if heroType == "slider" %}
     <script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
     <script>
-      vanillaSlideshow.init({
-        // auto slideshow, options: true or false
-        slideshow: true,
-        // slideshow delay
-        delay: 3000,
-        // display arrows, options: true or false
-        arrows: true,
-        // display indicators, options: true or false
-        indicators: false,
-        // start slideshow randomly, options: true or false
-        random: false,
-        // animation speed
-        animationSpeed: "1.75s",
-      });
+      if (vanillaSlideshow) {
+        vanillaSlideshow.init({
+          // auto slideshow, options: true or false
+          slideshow: true,
+          // slideshow delay
+          delay: 3000,
+          // display arrows, options: true or false
+          arrows: true,
+          // display indicators, options: true or false
+          indicators: false,
+          // start slideshow randomly, options: true or false
+          random: false,
+          // animation speed
+          animationSpeed: "1.75s",
+        });
+      }
     </script>
     {% endif %}
   </body>

@@ -98,23 +98,19 @@ homePage: true
 </div>
 {% endif %} {% if heroVideo %}
 <div class="hero-video">
-  <!-- <div class="hero-content">
-    <div class="hero-text">Dr. Seshadri Iyengar</div>
-    <div class="hero-tagline">
+  <div class="hero-video--content">
+    <div class="hero-video--text">Dr. Seshadri Iyengar</div>
+    <div class="hero-video--tagline">
       "It was the ultimate in excellence and you are the great hope of Indian
-      Classical dance" Dance icon Yamini Krishnamurthi (The Hindu, Aug 13, 2010)
+      Classical dance"<br />Dance icon Yamini Krishnamurthi (The Hindu, Aug 13,
+      2010)
     </div>
-    <div class="hero-buttons">
-      <div class="hero-button">Iyengar Centre for fine arts</div>
-      <div class="hero-button">Upcoming performances</div>
+    <div class="hero-video--buttons">
+      <div class="hero-video--button">Iyengar Centre for Fine Arts</div>
+      <div class="hero-video--button">Upcoming Performances</div>
     </div>
-  </div> -->
-  <video
-    src="https://res.cloudinary.com/driyengar/video/upload/v1627705759/homepage-banner-video-2MB_hnwazr.mp4"
-    muted
-    loop
-    autoplay
-  ></video>
+  </div>
+  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
 </div>
 {% endif %}
 
