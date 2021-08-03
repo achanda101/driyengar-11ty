@@ -10,6 +10,8 @@
 }
 
 .desk .navbar {
+  // this solves the FOUC problem (flash of unstyled content)
+  visibility: hidden;
   height: var(--navbar-desk-height);
   display: flex;
   justify-content: space-between;

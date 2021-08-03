@@ -359,6 +359,9 @@
         "vanilla-slideshow-container"
       );
       var heroVideo = document.getElementById("heroVideo");
+      var heroVideoContent = document.getElementsByClassName(
+        "hero-video--content"
+      )[0];
       var heroVideoText =
         document.getElementsByClassName("hero-video--text")[0];
       var heroVideoTagline = document.getElementsByClassName(
@@ -367,10 +370,6 @@
       var heroVideoButtonList = document.getElementsByClassName(
         "hero-video--buttons"
       )[0];
-      if (heroVideoText) heroVideoText.style.opacity = "0";
-      if (heroVideoTagline) heroVideoTagline.style.opacity = "0";
-      if (heroVideoButtonList) heroVideoButtonList.style.opacity = "0";
-      if (navBarDeskElem) navBarDeskElem.style.opacity = "0";
       var ht = window.innerHeight;
       var a_third_ht = ht * 0.33;
 
@@ -457,6 +456,8 @@
 
         if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
           let tl = gsap.timeline();
+
+          tl.from(heroVideoContent, { autoAlpha: 0 });
           // insert exactly 3 seconds from the start of the timeline
           tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 3);
           // insert at the END of the previous animation
@@ -471,14 +472,18 @@
             { alpha: 0 },
             { duration: 1, alpha: 1 }
           );
-          tl.fromTo(
-            navBarDeskElem,
-            { alpha: 0 },
-            { duration: 1, alpha: 1 },
-            ">"
-          );
+          if (navBarDeskElem) {
+            // this solves the FOUC problem (flash of unstyled content)
+            tl.from(navBarDeskElem, { autoAlpha: 0 });
+            tl.fromTo(
+              navBarDeskElem,
+              { alpha: 0 },
+              { duration: 1, alpha: 1 },
+              ">"
+            );
+          }
         } else {
-          navBarDeskElem.style.opacity = "1";
+          if (navBarDeskElem) navBarDeskElem.style.visibility = "visible";
         }
       });
     </script>

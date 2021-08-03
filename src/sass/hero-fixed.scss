@@ -41,13 +41,14 @@
 }
 
 .hero-video--content {
+  // this solves the FOUC problem (flash of unstyled content)
+  visibility: hidden;
   position: absolute;
   bottom: 30vh;
   // right position same as padding on navbar-desk
   right: 2em;
   z-index: 5;
   width: 100%;
-  // max-width: 60%;
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -66,8 +67,6 @@
     font-size: calc(0.3rem + 1vw);
     line-height: calc(0.6rem + 1vw);
     text-align: right;
-    // padding-top: 10px;
-    // border-top: 1px solid var(--dark-grey);
   }
   .hero-video--buttons {
     display: flex;
