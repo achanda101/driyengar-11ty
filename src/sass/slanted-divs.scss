@@ -1,23 +1,24 @@
 /* angled div */
 .slanted-div {
   position: relative;
-  padding: 120px 0 170px;
+  //   padding: 120px 0 180px;
+  padding: 6vw 0 12vw;
   overflow: visible;
   z-index: 1;
   .section-content {
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 70%;
+    max-width: 65%;
     margin: 0 auto;
     > * {
       align-self: center;
       padding: 0;
     }
     // gap between elements
-    > * + * {
-      margin-left: 8%;
-    }
+    // > * + * {
+    //   margin-left: 4%;
+    // }
     .section-content--text {
       width: 60%;
       //   border: 1px solid lime;
@@ -34,19 +35,20 @@
     }
     .section-content--img {
       width: 22%;
-      //   height: 100%;
       overflow: hidden;
       &.spotlight {
-        width: 28%;
-        border-radius: 50%;
-        border: 1px solid yellow;
+        width: 35%;
+        img {
+          border-radius: 50%;
+        }
       }
       &.rounded {
-        border-radius: 5%;
+        img {
+          border-radius: 5%;
+        }
       }
       img {
         width: 100%;
-        // min-height: 120%;
         object-fit: cover;
       }
     }

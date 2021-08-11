@@ -11,6 +11,7 @@
 p {
   max-width: 70%;
   padding: 0.5em 0;
+  line-height: 28px;
   // margin: 0 auto;
 }
 
@@ -30,20 +31,62 @@ img {
   object-fit: cover;
 }
 
-.link::before {
-  border-radius: 100%;
-  border: solid 2px var(--semi-white);
-  content: "\f0d7";
+.link {
   display: inline-block;
-  font-size: 1.25em;
-  line-height: 1.65em;
-  margin-right: 0.85em;
-  text-align: center;
-  text-indent: 0.15em;
-  vertical-align: middle;
-  width: 2em;
-  height: 2em;
+  text-decoration: none;
+  font-family: var(--sans-serif-font-family);
+  font-weight: var(--medium-font-weight);
+  color: var(--threequarter-white);
+  text-transform: capitalize;
+  transition: all 0.5s;
+  &:hover {
+    color: var(--body-text-color);
+    font-weight: var(--medium-sansserif-font-weight);
+    border-color: var(--threequarter-white);
+  }
 }
+
+.gg-chevron-double-right-o {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: 2px solid var(--semi-white);
+  border-radius: 40px;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+  vertical-align: middle;
+  // &:hover {
+  //   border: 2px solid var(--threequarter-white);
+  //   background-color: var(semi-white);
+  // }
+}
+
+.gg-chevron-double-right-o::after,
+.gg-chevron-double-right-o::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--semi-white);
+  border-top: 2px solid var(--semi-white);
+  transform: rotate(45deg);
+  top: 9px;
+  right: 8px;
+}
+
+.gg-chevron-double-right-o::after {
+  right: 14px;
+}
+
+// .gg-chevron-double-right-o:hover::before,
+// .gg-chevron-double-right-o:hover::after {
+//   border-right: 2px solid var(--threequarter-white);
+//   border-top: 2px solid var(--threequarter-white);
+// }
 
 // Scroll control offset: make the anchored elements sit below the navbar
 // https://css-tricks.com/hash-tag-links-padding/
@@ -189,6 +232,7 @@ img {
   p {
     max-width: 70%;
     padding: 0.5em 0 0;
+    line-height: 28px;
   }
 
   // Scroll control offset: make the anchored elements sit below the navbar
