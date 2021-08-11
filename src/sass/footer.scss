@@ -2,68 +2,50 @@ footer {
   max-width: 100%;
   min-height: fit-content;
   background-color: var(--header-footer-color);
-  color: var(--body-text-color);
+  font-family: var(--sans-serif-font-family);
+  font-size: clamp(12px, 2vw, 16px);
+  line-height: clamp(15px, 2.4vw, 17px);
+  font-weight: var(--medium-font-weight);
+  letter-spacing: 1px;
+  color: var(--light-grey);
   text-align: center;
-  padding-bottom: 2em;
+  padding: 150px 0 100px;
 
   a {
     text-decoration: none;
-    color: var(--body-text-color);
-    font-size: 0.85em;
+    color: var(--light-grey);
   }
 
-  .tagline {
-    width: 100%;
-    background-color: var(--accent-color-1);
-    padding: 0.2em 0;
+  .default-footer-content {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid var(--very-dark-grey);
   }
   .contact-info {
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--body-text-color);
-  }
-  .address {
-    font-size: 0.85em;
-    padding: 1em 0;
-  }
-  .terms-n-conditions {
-    font-size: 0.7em;
-    line-height: 0.6em;
-    a {
-      font-size: 1em;
+    display: block;
+    text-align: left;
+    max-width: 75%;
+    // gap between elements
+    > * + * {
+      margin-top: 15px;
     }
-  }
-  .light-text {
-    color: var(--accent-color-1);
   }
 }
 
 // mobile & tablet
 @media screen and (max-width: 800px) {
   footer {
-    min-width: 100%;
-    font-size: 0.6em;
-    .tagline {
-      padding: 0.5em 0;
+    padding: 50px 0 50px;
+    .default-footer-content {
+      border: 0;
     }
     .contact-info {
-      flex-direction: column;
-      padding: 0.5em 0;
-      width: 60%;
-      a {
-        font-size: 1em;
-      }
-    }
-    .address {
-      font-size: 1em;
-    }
-    .terms-n-conditions {
-      font-size: 1em;
-      line-height: 0.9em;
-      a {
-        font-size: 1em;
+      max-width: 50%;
+      > * + * {
+        margin-top: 8px;
       }
     }
   }
