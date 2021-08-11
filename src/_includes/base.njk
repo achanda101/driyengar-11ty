@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
-    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin="crossorigin"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500&family=Tangerine&display=swap"
       rel="stylesheet"
     />
     {% if carousels %}
@@ -38,7 +35,12 @@
         <input type="checkbox" id="menu" />
         <div class="navbar">
           {% if homePage %}
-          <div>&nbsp;</div>
+          <div class="logo-box">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
+              alt="Iyengar Centre for Fine Arts logo"
+            />
+          </div>
           {% else %}
           <a href="/">
             <i class="fas fa-home"></i>
@@ -211,13 +213,18 @@
       <div class="desk">
         <div class="navbar">
           {% if homePage %}
-          <div>&nbsp;</div>
+          <div class="logo-box">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
+              alt="Iyengar Centre for Fine Arts logo"
+            />
+          </div>
           {% else %}
           <a href="/"> DR SESHADRI<br />IYENGAR </a>
           {% endif %}
           <div class="menu-groups">
-            <div class="multi-level" id="ml1">
-              <div class="ml1-menu-section">
+            <div class="multi-level">
+              <div class="menulevel-section">
                 <div class="item">
                   <div class="item-name">
                     <a href="#">ICFA</a>
@@ -230,7 +237,25 @@
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="#">Videos</a>
+                    <a href="#">Workshops</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
+                    <a href="#">global work</a>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="item-name">
+                    <a href="/#contact">Contact</a>
+                  </div>
+                </div>
+              </div>
+              <div class="menulevel-section">
+                <div class="item">
+                  <div class="item-name">
+                    <a href="#">profile</a>
                   </div>
                 </div>
                 <div class="item">
@@ -240,54 +265,36 @@
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="/#contact">Contact</a>
+                    <a href="#">Videos</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
+                    <a href="#">Press Kit</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
+                    <a href="#">Reviews</a>
                   </div>
                 </div>
               </div>
-              <div class="button-bar">
-                <div class="button round">
-                  <a href="#">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </div>
-                <div class="button round">
-                  <a href="#">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </div>
-                <div class="button round">
-                  <a href="#">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                </div>
-              </div>
             </div>
-
-            <div class="multi-level" id="ml2">
-              <div class="item">
-                <div class="item-name">
-                  <a href="#">profile</a>
-                </div>
+            <div class="button-bar">
+              <div class="button round">
+                <a href="#">
+                  <i class="fab fa-facebook"></i>
+                </a>
               </div>
-              <div class="item">
-                <div class="item-name">
-                  <a href="#">workshop</a>
-                </div>
+              <div class="button round">
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
               </div>
-              <div class="item">
-                <div class="item-name">
-                  <a href="#">reviews</a>
-                </div>
-              </div>
-              <div class="item">
-                <div class="item-name">
-                  <a href="#">global work</a>
-                </div>
-              </div>
-              <div class="item">
-                <div class="item-name">
-                  <a href="#">press kit</a>
-                </div>
+              <div class="button round">
+                <a href="#">
+                  <i class="fab fa-youtube"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -346,6 +353,8 @@
     ></script>
     {% endif %}
     <script>
+      var logoImgMob = document.getElementsByClassName("logo-box")[0];
+      var logoImgDesk = document.getElementsByClassName("logo-box")[1];
       var mobileElem = document.getElementsByClassName("mobile")[0];
       var navElem = document.getElementsByTagName("nav")[0];
       var navBarMobElem = document.getElementsByClassName("navbar")[0];
@@ -389,29 +398,40 @@
       window.addEventListener("scroll", () => {
         let fromTop = window.scrollY;
 
-        if (fromTop > a_third_ht) {
+        if (fromTop > 0) {
+          logoImgMob.style.width = "40px";
+          logoImgMob.style.height = "40px";
+          logoImgDesk.style.width = "70px";
+          logoImgDesk.style.height = "70px";
           navBarMobElem.style.height = navbar_height_onscroll;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
           if (contentElem) {
             navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
           }
-          if (heroVideo) {
-            heroVideo.pause();
+          if (fromTop > a_third_ht) {
+            if (heroVideo) {
+              heroVideo.pause();
+            }
           }
         }
 
-        // if (fromTop < 1) {
-        if (fromTop < a_third_ht) {
+        if (fromTop < 1) {
           if (!hamMenuElem.checked) {
+            logoImgMob.style.width = "clamp(70px, 6vw, 120px)";
+            logoImgMob.style.height = "clamp(70px, 6vw, 120px)";
+            logoImgDesk.style.width = "clamp(70px, 6vw, 120px)";
+            logoImgDesk.style.height = "clamp(70px, 6vw, 120px)";
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
             navBarDeskElem.style.backgroundColor = navbar_bg_color_trans;
             if (contentElem) {
               navBarMobElem.style.backgroundColor = navbar_bg_color_trans;
             }
-            if (heroVideo) {
-              heroVideo.play();
+            if (fromTop < a_third_ht) {
+              if (heroVideo) {
+                heroVideo.play();
+              }
             }
           }
         }
@@ -461,8 +481,8 @@
           let tl = gsap.timeline();
 
           tl.from(heroVideoContent, { autoAlpha: 0 });
-          // insert exactly 3 seconds from the start of the timeline
-          tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 3);
+          // insert exactly 2 seconds from the start of the timeline
+          tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
           // insert at the END of the previous animation
           tl.fromTo(
             heroVideoTagline,

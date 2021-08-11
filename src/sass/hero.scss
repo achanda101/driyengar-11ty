@@ -36,13 +36,6 @@
   }
 }
 
-.hero-image.pattern {
-  background-color: #487346;
-  background-image: url("https://res.cloudinary.com/achanda/image/upload/v1616567204/green-section-wavey-bg_kotyqw.svg");
-  background-repeat: repeat;
-  background-size: auto;
-}
-
 .hero-content {
   position: absolute;
   bottom: 8vh;
@@ -54,8 +47,7 @@
   color: #fff;
   max-width: 50%;
   .hero-text {
-    font-family: var(--serif-font-family);
-    font-weight: var(--strong-font-weight);
+    font-family: var(--banner-title-font-family);
     font-size: calc(1.25rem + 4vw);
     line-height: calc(1.75rem + 4vw);
   }
@@ -66,7 +58,7 @@
     line-height: calc(0.85rem + 4vw);
     text-align: right;
     padding-top: 10px;
-    border-top: 1px solid var(--light-grey);
+    border-top: 1px solid var(--border-color);
   }
   .hero-buttons {
     display: flex;
@@ -74,11 +66,11 @@
     max-width: 80%;
     .hero-button {
       padding: 5px 12px;
-      background-color: var(--primary-color);
+      background-color: var(--hero-button-color);
       font-family: var(--sans-serif-font-family);
-      font-weight: var(--medium-font-weight);
+      font-weight: var(--light-font-weight);
       border-radius: 6px;
-      border: 1px solid var(--primary-color--lowsat);
+      border: 1px solid var(--hero-button-border-color);
     }
   }
 }

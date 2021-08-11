@@ -11,13 +11,6 @@
   margin-bottom: 1em;
 }
 
-.hero-image.pattern {
-  background-color: #487346;
-  background-image: url("https://res.cloudinary.com/achanda/image/upload/v1616567204/green-section-wavey-bg_kotyqw.svg");
-  background-repeat: repeat;
-  background-size: auto;
-}
-
 .hero-video {
   background-color: #000;
   margin-top: calc(var(--navbar-height) * (-1));
@@ -44,9 +37,9 @@
   // this solves the FOUC problem (flash of unstyled content)
   visibility: hidden;
   position: absolute;
-  bottom: 30vh;
+  bottom: 20vh;
   // right position same as padding on navbar-desk
-  right: 2em;
+  right: 3vw;
   z-index: 5;
   width: 100%;
   display: flex;
@@ -55,17 +48,15 @@
 
   .hero-video--text {
     text-align: right;
-    font-family: var(--serif-font-family);
-    font-weight: var(--strong-font-weight);
-    font-size: calc(1rem + 3vw);
-    line-height: calc(0.8rem + 3vw);
-    padding-bottom: 30px;
+    font-family: var(--banner-title-font-family);
+    font-size: calc(2.5rem + 3.5vw);
+    line-height: calc(2.6rem + 3.5vw);
+    padding-bottom: 22px;
   }
   .hero-video--tagline {
     font-family: var(--sans-serif-font-family);
-    font-weight: var(--light-font-weight);
-    font-size: calc(0.3rem + 1vw);
-    line-height: calc(0.6rem + 1vw);
+    font-size: clamp(12px, 1.95vw, 24px);
+    line-height: clamp(13px, 2vw, 26px);
     text-align: right;
   }
   .hero-video--buttons {
@@ -76,18 +67,18 @@
     .hero-video--button {
       padding: 15px 20px;
       margin-left: 20px;
-      background-color: var(--accent-color-2);
-      color: #000;
+      background-color: transparent;
+      color: var(--hero-button-text-color);
       text-transform: uppercase;
-      font-size: calc(0.1rem + 1vw);
+      font-size: clamp(14px, 1.2vw, 20px);
       font-family: var(--sans-serif-font-family);
-      font-weight: var(--medium-font-weight);
+      font-weight: var(--medium-sansserif-font-weight);
       border-radius: 8px;
-      border: 2px solid var(--accent-color-1--lighter);
-      transition: background-color 0.5s;
+      border: 2px solid var(--hero-button-border-color);
+      transition: all 1s;
       &:hover {
-        background-color: var(--accent-color-2--lighter);
-        border: 2px solid var(--accent-color-2--lighter);
+        background-color: var(--hero-button-hover-color);
+        color: #000;
         cursor: pointer;
       }
     }
