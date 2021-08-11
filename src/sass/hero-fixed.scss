@@ -31,6 +31,14 @@
     left: 0;
     object-fit: cover;
   }
+  .volume-icon {
+    position: absolute;
+    bottom: 10vh;
+    left: clamp(100px, 10vw, 2em);
+    z-index: 5;
+    font-size: calc(0.65em + 1vw);
+    color: var(--dark-grey);
+  }
 }
 
 .hero-video--content {
@@ -105,11 +113,6 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
-  .volume-icon {
-    align-self: flex-end;
-    font-size: calc(0.65em + 1vw);
-    color: var(--dark-grey);
   }
 }
 

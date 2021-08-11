@@ -27,6 +27,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <link rel="shortcut icon" href="{{ '/img/favicon.png' | url }}" />
   </head>
   <body>
     <!-- TODO Have the full menu structure as a JSON file -->
@@ -381,6 +382,7 @@
       )[0];
       var heroMiscContent =
         document.getElementsByClassName("hero-misc--content")[0];
+      var audioToggleElem = document.getElementsByClassName("volume-icon")[0];
       var ht = window.innerHeight;
       var a_third_ht = ht * 0.33;
 
@@ -459,6 +461,15 @@
           navBarMobElem.style.height = navbar_height;
           hamIcon.classList.toggle("ham-open");
         }
+      });
+
+      audioToggleElem.addEventListener("click", () => {
+        if (heroVideo && heroVideo.muted) {
+          audioToggleElem.innerHTML = "<i class='fas fa-volume-up'></i>";
+        } else {
+          audioToggleElem.innerHTML = "<i class='fas fa-volume-mute'></i>";
+        }
+        heroVideo.muted = !heroVideo.muted;
       });
 
       if (ht > 799) {

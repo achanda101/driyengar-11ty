@@ -120,12 +120,12 @@ homePage: true
           alt="scroll direction indicator"
         />
       </div>
-      <div class="volume-icon" onclick="toggleAudio()">
-        <i class="fas fa-volume-mute"></i>
-      </div>
     </div>
   </div>
-  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
+  <div class="volume-icon">
+    <i class="fas fa-volume-up"></i>
+  </div>
+  <video src="{{ heroVideo }}" loop autoplay id="heroVideo"></video>
 </div>
 {% endif %}
 
