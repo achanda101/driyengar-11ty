@@ -116,16 +116,62 @@
   }
 }
 
-.hero-text {
+.hero--content {
+  // this solves the FOUC problem (flash of unstyled content)
+  visibility: hidden;
   position: absolute;
-  bottom: 17vh;
-  right: 8vw;
+  bottom: 20vh;
+  // right position same as padding on navbar-desk
+  right: 3vw;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   color: #fff;
-  text-align: right;
-  font-size: calc(1.25rem + 4vw);
-  line-height: calc(1.75rem + 4vw);
-  max-width: 75%;
-  text-shadow: 2px 2px 4px #4d4d4d;
+
+  .hero--text {
+    text-align: right;
+    font-family: var(--banner-title-font-family);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: calc(1.95rem + 3.5vw);
+    line-height: calc(2.3rem + 3.5vw);
+    padding-bottom: 22px;
+  }
+  .hero--credit {
+    right: 2px;
+    bottom: 80px;
+  }
+  .hero--tagline {
+    font-family: var(--sans-serif-font-family);
+    font-size: clamp(12px, 1.95vw, 24px);
+    line-height: clamp(13px, 2vw, 26px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: right;
+  }
+  .hero--buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 30px;
+    .hero--button {
+      padding: 15px 20px;
+      margin-left: 20px;
+      background-color: transparent;
+      color: var(--hero-button-text-color);
+      text-transform: uppercase;
+      font-size: clamp(14px, 1.2vw, 20px);
+      font-family: var(--sans-serif-font-family);
+      font-weight: var(--medium-sansserif-font-weight);
+      border-radius: 8px;
+      border: 2px solid var(--hero-button-border-color);
+      transition: all 1s;
+      &:hover {
+        background-color: var(--hero-button-hover-color);
+        color: #000;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .hero-credit {
@@ -187,9 +233,9 @@
     }
     .hero--tagline {
       font-family: var(--sans-serif-font-family);
-      font-size: clamp(12px, 1.95vw, 24px);
-      line-height: clamp(13px, 2vw, 26px);
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      font-size: clamp(14px, 1.95vw, 24px);
+      line-height: clamp(18px, 2vw, 28px);
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
       text-align: right;
     }
     .hero--buttons {
