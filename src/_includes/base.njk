@@ -34,17 +34,28 @@
     <nav>
       <div class="mobile">
         <input type="checkbox" id="menu" />
+        {% if homePage %}
         <div class="navbar">
+        {% else %}
+        <div class="navbar inner-page">
+        {% endif %}
           {% if homePage %}
+          <a href="/">
           <div class="logo-box">
             <img
               src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
               alt="Iyengar Centre for Fine Arts logo"
             />
           </div>
+          </a>
           {% else %}
           <a href="/">
-            <i class="fas fa-home"></i>
+            <div class="logo-box">
+              <img
+                src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
+                alt="Iyengar Centre for Fine Arts logo"
+              />
+            </div>
           </a>
           {% endif %}
           <label for="menu" id="ham-icon-wrapper">
@@ -217,16 +228,26 @@
         {% else %}
         <div class="navbar inner-page">
         {% endif %}
-          {% if homePage %}
+        {% if homePage %}
+        <a href="/">
           <div class="logo-box">
             <img
               src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
               alt="Iyengar Centre for Fine Arts logo"
             />
           </div>
-          {% else %}
-          <a href="/"> DR SESHADRI<br />IYENGAR </a>
-          {% endif %}
+        </a>
+        {% else %}
+        <!-- <a href="/"> DR SESHADRI<br />IYENGAR </a> -->
+        <a href="/">
+          <div class="logo-box">
+            <img
+              src="https://res.cloudinary.com/driyengar/image/upload/v1509773872/website_images/icfa_logo_sml.jpg"
+              alt="Iyengar Centre for Fine Arts logo"
+            />
+          </div>
+        </a>
+        {% endif %}
           <div class="menu-groups">
             <div class="multi-level">
               <div class="menulevel-section">
@@ -347,6 +368,7 @@
       var navBarMobElem = document.getElementsByClassName("navbar")[0];
       var navBarDeskElem = document.getElementsByClassName("navbar")[1];
       var innerPage = document.getElementById("innerPage");
+      var navBarMobInnerPage = document.getElementsByClassName("inner-page")[0];
       var hamMenuElem = document.getElementById("menu");
       var hamIcon = document.getElementById("ham-icon");
       var contentElem = document.getElementsByClassName("content")[0];
@@ -406,6 +428,7 @@
             logoImgDesk.style.height = "70px";
           }
           navBarMobElem.style.height = navbar_height_onscroll;
+          navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
           
@@ -429,7 +452,11 @@
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
             navBarDeskElem.style.backgroundColor = navbar_bg_color_trans;
-            if (innerPage) navBarDeskElem.style.backgroundColor = navbar_bg_color_semitrans;
+            if (innerPage) {
+              navBarDeskElem.style.backgroundColor = navbar_bg_color_semitrans;
+              navBarMobInnerPage.style.backgroundColor = navbar_bg_color_semitrans;
+              navBarMobElem.style.backgroundColor = "transparent";
+            }
 
             if (fromTop < a_third_ht) {
               if (heroVideo) {
@@ -447,17 +474,20 @@
           if (contentElem) {
             contentElem.style.overflow = "hidden";
             contentElem.style.position = "fixed";
-            navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
+            mobileElem.style.backgroundColor = navbar_bg_color_solid;
           }
           navBarMobElem.style.height = navbar_height_onscroll;
           hamIcon.classList.toggle("ham-open");
         } else {
-          mobileElem.style.backgroundColor = "transparent";
+          if (innerPage) {
+            mobileElem.style.backgroundColor = navbar_bg_color_semitrans;
+          } else {
+            mobileElem.style.backgroundColor = "transparent";
+          }
           mobileElem.style.minHeight = "100%";
           if (contentElem) {
             contentElem.style.overflow = "auto";
             contentElem.style.position = "static";
-            navBarMobElem.style.backgroundColor = navbar_bg_color_trans;
           }
           navBarMobElem.style.height = navbar_height;
           hamIcon.classList.toggle("ham-open");

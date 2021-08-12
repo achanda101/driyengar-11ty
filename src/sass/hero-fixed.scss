@@ -122,11 +122,12 @@
   position: absolute;
   bottom: 20vh;
   // right position same as padding on navbar-desk
-  right: 3vw;
+  right: 5vw;
   z-index: 5;
-  width: 100%;
+  width: 69%;
   display: flex;
   flex-direction: column;
+  align-content: flex-end;
   color: #fff;
 
   .hero--text {
@@ -142,11 +143,11 @@
     bottom: 80px;
   }
   .hero--tagline {
-    font-family: var(--sans-serif-font-family);
-    font-size: clamp(12px, 1.95vw, 24px);
-    line-height: clamp(13px, 2vw, 26px);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     text-align: right;
+    font-family: var(--sans-serif-font-family);
+    font-size: clamp(16px, 1.95vw, 24px);
+    line-height: clamp(26px, 2.5vw, 32px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
   .hero--buttons {
     display: flex;
@@ -214,13 +215,13 @@
     // right position same as padding on navbar-desk
     right: 3vw;
     z-index: 5;
-    width: 100%;
+    width: 65%;
     display: flex;
     flex-direction: column;
+    align-content: flex-end;
     color: #fff;
 
     .hero--text {
-      text-align: right;
       font-family: var(--banner-title-font-family);
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
       font-size: calc(1.95rem + 3.5vw);
@@ -236,7 +237,7 @@
       font-size: clamp(14px, 1.95vw, 24px);
       line-height: clamp(18px, 2vw, 28px);
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-      text-align: right;
+      // text-align: right;
     }
     .hero--buttons {
       display: flex;
