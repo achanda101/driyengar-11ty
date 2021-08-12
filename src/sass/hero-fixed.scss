@@ -8,7 +8,7 @@
   background-size: cover;
   background-color: #000;
   position: relative;
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
 }
 
 .hero-video {
@@ -56,7 +56,7 @@
 
   .hero-video--text {
     text-align: right;
-    font-family: var(--banner-title-font-family);
+    font-family: var(--banner-home-title-font-family);
     font-size: calc(2.5rem + 3.5vw);
     line-height: calc(2.6rem + 3.5vw);
     padding-bottom: 22px;
@@ -156,59 +156,65 @@
   .hero-video {
     margin-top: calc(var(--navbar-desk-height) * (-1));
   }
-  .hero-text {
-    right: 5vw;
-    bottom: 10vh;
+  .hero-image {
+    margin-top: calc(var(--navbar-desk-height) * (-1));
   }
-  .hero-credit {
-    right: 2px;
-    bottom: 80px;
-  }
-  .hero-item {
-    display: block;
+
+  .hero--content {
+    // this solves the FOUC problem (flash of unstyled content)
+    visibility: hidden;
     position: absolute;
-    margin: 0;
-    padding: 0;
-    border-radius: 50px;
-    box-shadow: 5px -6px 4px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 5px -6px 4px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 5px -6px 4px rgba(0, 0, 0, 0.15);
-    img {
-      width: 10vw;
-    }
-    &.round {
-      border-radius: 50%;
-      box-shadow: 5px -10px 4px rgba(0, 0, 0, 0.15);
-      -webkit-box-shadow: 5px -10px 4px rgba(0, 0, 0, 0.15);
-      -moz-box-shadow: 5px -10px 4px rgba(0, 0, 0, 0.15);
-    }
-  }
-  .hero-item#img-1 {
-    top: 45vh;
-    left: 20vw;
-  }
-  .hero-item#img-2 {
-    top: 45vh;
-    left: 45vw;
-  }
-  .hero-item#img-3 {
-    top: 45vh;
-    left: 70vw;
-  }
-  .hero-item-hover {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 20vh;
+    // right position same as padding on navbar-desk
+    right: 3vw;
+    z-index: 5;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .hero-item:hover {
-    cursor: pointer;
-    .hero-item-hover {
-      opacity: 1;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    .hero--text {
+      text-align: right;
+      font-family: var(--banner-title-font-family);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      font-size: calc(1.95rem + 3.5vw);
+      line-height: calc(2.3rem + 3.5vw);
+      padding-bottom: 22px;
+    }
+    .hero--credit {
+      right: 2px;
+      bottom: 80px;
+    }
+    .hero--tagline {
+      font-family: var(--sans-serif-font-family);
+      font-size: clamp(12px, 1.95vw, 24px);
+      line-height: clamp(13px, 2vw, 26px);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      text-align: right;
+    }
+    .hero--buttons {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-top: 30px;
+      .hero--button {
+        padding: 15px 20px;
+        margin-left: 20px;
+        background-color: transparent;
+        color: var(--hero-button-text-color);
+        text-transform: uppercase;
+        font-size: clamp(14px, 1.2vw, 20px);
+        font-family: var(--sans-serif-font-family);
+        font-weight: var(--medium-sansserif-font-weight);
+        border-radius: 8px;
+        border: 2px solid var(--hero-button-border-color);
+        transition: all 1s;
+        &:hover {
+          background-color: var(--hero-button-hover-color);
+          color: #000;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

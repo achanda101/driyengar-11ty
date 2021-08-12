@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500&family=Tangerine&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500;600&family=Tangerine&family=Norican&display=swap"
       rel="stylesheet"
     />
     {% if carousels %}
@@ -212,7 +212,11 @@
         </div>
       </div>
       <div class="desk">
+        {% if homePage %}
         <div class="navbar">
+        {% else %}
+        <div class="navbar inner-page">
+        {% endif %}
           {% if homePage %}
           <div class="logo-box">
             <img
@@ -228,7 +232,7 @@
               <div class="menulevel-section">
                 <div class="item">
                   <div class="item-name">
-                    <a href="#">ICFA</a>
+                    <a href="/icfa">ICFA</a>
                   </div>
                 </div>
                 <div class="item">
@@ -342,6 +346,7 @@
       var navElem = document.getElementsByTagName("nav")[0];
       var navBarMobElem = document.getElementsByClassName("navbar")[0];
       var navBarDeskElem = document.getElementsByClassName("navbar")[1];
+      var innerPage = document.getElementById("innerPage");
       var hamMenuElem = document.getElementById("menu");
       var hamIcon = document.getElementById("ham-icon");
       var contentElem = document.getElementsByClassName("content")[0];
@@ -350,6 +355,13 @@
       var vanillaSlideshow = document.getElementById(
         "vanilla-slideshow-container"
       );
+      // When INNER page has a banner image
+      var heroContent = document.getElementsByClassName("hero--content")[0];
+      var heroText = document.getElementsByClassName("hero--text")[0];
+      var heroTagline = document.getElementsByClassName("hero--tagline")[0];
+      var heroButtonList = document.getElementsByClassName("hero--buttons")[0];
+
+      // When HOMEPAGE has a banner video
       var heroVideo = document.getElementById("heroVideo");
       var heroVideoContent = document.getElementsByClassName(
         "hero-video--content"
@@ -365,13 +377,15 @@
       var heroMiscContent =
         document.getElementsByClassName("hero-misc--content")[0];
       var audioToggleElem = document.getElementsByClassName("volume-icon")[0];
+
       var ht = window.innerHeight;
       var a_third_ht = ht * 0.33;
 
       // Global variables
-      // const navbar_bg_color_solid = "rgba(10, 18, 113, 1.0)";
+  
       const navbar_bg_color_solid = "rgba(0, 0, 0, 1.0)";
-      const navbar_bg_color_trans = "rgba(10, 18, 113, 0)";
+      const navbar_bg_color_trans = "rgba(0, 0, 0, 0)";
+      const navbar_bg_color_semitrans = "linear-gradient(to bottom, rgb(0, 0, 0, 0.4), rgba(0, 0, 0, 0))";
       const navbar_height = "100px";
       const navbar_height_onscroll = "60px";
       const navbar_desk_height = "120px";
@@ -383,16 +397,18 @@
         let fromTop = window.scrollY;
 
         if (fromTop > 0) {
-          logoImgMob.style.width = "40px";
-          logoImgMob.style.height = "40px";
-          logoImgDesk.style.width = "70px";
-          logoImgDesk.style.height = "70px";
+          if (logoImgMob) {
+            logoImgMob.style.width = "40px";
+            logoImgMob.style.height = "40px";
+          }
+          if (logoImgDesk) {
+            logoImgDesk.style.width = "70px";
+            logoImgDesk.style.height = "70px";
+          }
           navBarMobElem.style.height = navbar_height_onscroll;
           navBarDeskElem.style.height = navbar_desk_height_onscroll;
           navBarDeskElem.style.backgroundColor = navbar_bg_color_solid;
-          if (contentElem) {
-            navBarMobElem.style.backgroundColor = navbar_bg_color_solid;
-          }
+          
           if (fromTop > a_third_ht) {
             if (heroVideo) {
               heroVideo.pause();
@@ -402,16 +418,19 @@
 
         if (fromTop < 1) {
           if (!hamMenuElem.checked) {
-            logoImgMob.style.width = "clamp(70px, 6vw, 120px)";
-            logoImgMob.style.height = "clamp(70px, 6vw, 120px)";
-            logoImgDesk.style.width = "clamp(70px, 6vw, 120px)";
-            logoImgDesk.style.height = "clamp(70px, 6vw, 120px)";
+            if (logoImgMob) {
+              logoImgMob.style.width = "clamp(70px, 6vw, 120px)";
+              logoImgMob.style.height = "clamp(70px, 6vw, 120px)";
+            }
+            if (logoImgDesk) {
+              logoImgDesk.style.width = "clamp(70px, 6vw, 120px)";
+              logoImgDesk.style.height = "clamp(70px, 6vw, 120px)";
+            }
             navBarMobElem.style.height = navbar_height;
             navBarDeskElem.style.height = navbar_desk_height;
             navBarDeskElem.style.backgroundColor = navbar_bg_color_trans;
-            if (contentElem) {
-              navBarMobElem.style.backgroundColor = navbar_bg_color_trans;
-            }
+            if (innerPage) navBarDeskElem.style.backgroundColor = navbar_bg_color_semitrans;
+
             if (fromTop < a_third_ht) {
               if (heroVideo) {
                 heroVideo.play();
@@ -445,14 +464,16 @@
         }
       });
 
-      audioToggleElem.addEventListener("click", () => {
-        if (heroVideo && heroVideo.muted) {
-          audioToggleElem.innerHTML = "<i class='fas fa-volume-up'></i>";
-        } else {
-          audioToggleElem.innerHTML = "<i class='fas fa-volume-mute'></i>";
-        }
-        heroVideo.muted = !heroVideo.muted;
-      });
+      if (audioToggleElem) {
+        audioToggleElem.addEventListener("click", () => {
+          if (heroVideo && heroVideo.muted) {
+            audioToggleElem.innerHTML = "<i class='fas fa-volume-up'></i>";
+          } else {
+            audioToggleElem.innerHTML = "<i class='fas fa-volume-mute'></i>";
+          }
+          heroVideo.muted = !heroVideo.muted;
+        });
+      }
 
       if (ht > 799) {
         if (heroImage) {

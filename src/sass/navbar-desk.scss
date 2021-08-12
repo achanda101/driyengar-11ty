@@ -18,19 +18,27 @@
   align-items: center;
   padding: 0 3vw;
   background-color: var(--navbar-bg-color);
+  &.inner-page {
+    background: linear-gradient(
+      to bottom,
+      rgb(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.01)
+    );
+  }
   transition: all 0.5s;
   z-index: var(--navbar-z-index);
   // For the home button on the navbar
   > a {
     font-size: 18px;
     font-family: var(--sans-serif-font-family);
-    color: var(--navbar-item-color);
+    font-weight: var(--medium-sansserif-font-weight);
+    color: var(--body-text-color);
     text-decoration: none;
     text-align: center;
     transition: color 0.75s;
   }
   > a:hover {
-    color: var(--accent-color-1);
+    color: var(--socialmedia-color--light);
   }
 }
 
@@ -147,6 +155,11 @@
       padding-left: 0;
     }
   }
+}
+
+.inner-page .menu-groups .multi-level .item a {
+  color: var(--body-text-color);
+  font-weight: var(--strong-sansserif-font-weight);
 }
 
 .desk .menu-groups .item .item-name:hover ul {

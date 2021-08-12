@@ -4,6 +4,7 @@ heroType: "image"
 homePage: false
 ---
 
+<span id="innerPage" style="visibility: hidden"></span>
 {% if heroDesk %}
 <div
   class="hero-image"
@@ -12,13 +13,19 @@ homePage: false
   data-hero-image-mobile="{{ heroMob }}"
   alt="hero image description"
 >
-  <div class="hero-text">{{ heroText }}</div>
-  <div
-    class="hero-credit"
-    data-hero-credit-desk="{{ heroDeskCredit }}"
-    data-hero-credit-tablet="{{ heroTabCredit }}"
-    data-hero-credit-mobile="{{ heroMobCredit }}"
-  ></div>
+  <div class="hero--content">
+    <div class="hero--text">{{ heroText }}</div>
+    {% if heroTagline %}
+    <div class="hero--tagline">{{ heroTagline }}</div>
+    {% endif %} {% if heroDeskCredit and heroTabCredit and heroMobCredit %}
+    <div
+      class="hero--credit"
+      data-hero-credit-desk="{{ heroDeskCredit }}"
+      data-hero-credit-tablet="{{ heroTabCredit }}"
+      data-hero-credit-mobile="{{ heroMobCredit }}"
+    ></div>
+    {% endif %}
+  </div>
 </div>
 {% endif %}
 
@@ -28,21 +35,51 @@ homePage: false
 
 {% if heroText %}
 <script>
-  gsap.to(".hero-text", { duration: 2, y: 30 });
+  var heroContent = document.getElementsByClassName("hero--content")[0];
+  var heroText = document.getElementsByClassName("hero--text")[0];
+  var heroTagline = document.getElementsByClassName("hero--tagline")[0];
+  var heroButtonList = document.getElementsByClassName("hero--buttons")[0];
+  if (heroContent && heroText) {
+    let tl = gsap.timeline();
+    tl.from(heroContent, { autoAlpha: 0 });
+    // insert exactly 1 seconds from the start of the timeline
+    tl.fromTo(heroText, { alpha: 0 }, { duration: 2, alpha: 1 }, 1);
+
+    if (heroTagline) {
+      // insert at the END of the previous animation
+      tl.fromTo(
+        heroTagline,
+        { y: -30, alpha: 0 },
+        { duration: 2, y: 0, alpha: 1 },
+        ">"
+      );
+    }
+    if (heroButtonList) {
+      tl.fromTo(heroButtonList, { alpha: 0 }, { duration: 1, alpha: 1 });
+    }
+  }
 </script>
 {% endif %}
 
 <script>
   var heroImage = document.getElementsByClassName("hero-image")[0];
-  var heroCredit = document.getElementsByClassName("hero-credit")[0];
-  if (window.innerWidth > 1199) {
-    heroImage.style.backgroundImage = heroImage.dataset.heroImageDesk;
-    heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditDesk;
-  } else if (window.innerWidth > 599) {
-    heroImage.style.backgroundImage = heroImage.dataset.heroImageTablet;
-    heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditTablet;
-  } else {
-    heroImage.style.backgroundImage = heroImage.dataset.heroImageMobile;
-    heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
+  var heroCredit = document.getElementsByClassName("hero--credit")[0];
+  if (heroImage) {
+    if (window.innerWidth > 1199) {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageDesk;
+    } else if (window.innerWidth > 599) {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageTablet;
+    } else {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageMobile;
+    }
+  }
+  if (heroCredit) {
+    if (window.innerWidth > 1199) {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditDesk;
+    } else if (window.innerWidth > 599) {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditTablet;
+    } else {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
+    }
   }
 </script>
