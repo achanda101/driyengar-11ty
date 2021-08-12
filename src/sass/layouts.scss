@@ -2,11 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
+  &.pack-tight {
+    justify-content: space-evenly;
+  }
   &.solo {
     justify-content: center;
   }
-  &.primary-section {
-    max-width: 67%;
+  &.container {
+    max-width: 65%;
+    margin: 0 auto;
+  }
+  &.container-w75 {
+    max-width: 75%;
     margin: 0 auto;
   }
   .gap-50 {
@@ -31,19 +38,31 @@
   justify-content: space-between;
   flex-direction: column;
   &[data-gridgap="12px"] {
-    gap: 12px;
+    // gap: 12px;
     // flex gap does not work in safari < v14
     // check if this work-around works for safari
-    // > * + * { margin-bottom: 12px;}
+    > * + * {
+      margin-bottom: 12px;
+    }
   }
   &[data-gridgap="15px"] {
-    gap: 15px;
+    // gap: 15px;
+    > * + * {
+      margin-bottom: 15px;
+    }
   }
   &[data-gridgap="30px"] {
-    gap: 30px;
+    // gap: 30px;
+    > * + * {
+      margin-bottom: 30px;
+    }
   }
-  &.primary-section {
-    max-width: 67%;
+  &.container {
+    max-width: 65%;
+    margin: 0 auto;
+  }
+  &.container-w75 {
+    max-width: 75%;
     margin: 0 auto;
   }
 }
@@ -90,4 +109,24 @@
 }
 .airgap {
   width: 50px;
+}
+
+.img-wrapper {
+  max-width: 22vw;
+  border-radius: 3%;
+  overflow: hidden;
+  -webkit-box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4),
+    0 2px 2px rgba(4, 13, 41, 0.35), 0 4px 4px rgba(4, 13, 41, 0.3),
+    0 8px 8px rgba(4, 13, 41, 0.35), 0 16px 16px rgba(4, 13, 41, 0.2);
+  box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4), 0 2px 2px rgba(4, 13, 41, 0.35),
+    0 4px 4px rgba(4, 13, 41, 0.35), 0 8px 8px rgba(4, 13, 41, 0.3),
+    0 16px 16px rgba(4, 13, 41, 0.2);
+  &.rounded {
+    img {
+      //   border-radius: 3%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }

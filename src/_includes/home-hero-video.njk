@@ -15,70 +15,58 @@ homePage: true
     <div class="vanilla-slide">
       <picture>
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1580617696/dance-professionals-desk_q1mnsc.jpg
-          "
+          srcset="{{ heroSliderImgDesk1 | url }}"
           media="(min-width: 1000px)"
         />
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1589039867/ipad/dance-professionals_kximrn.jpg
-          "
+          srcset="{{ heroSliderImgTablet1 | url }}"
           media="(min-width: 600px)"
         />
         <img
-          src="https://res.cloudinary.com/nrityagram/image/upload/v1580617695/mobile/dance-professionals-mob_jwkl0j.jpg"
+          src="{{ heroSliderImgMobile1 | url }}"
           alt="slide 2"
           height="auto"
         />
       </picture>
-      <div class="home-credit">Credit: Raghuram Rajan Challapati</div>
+      <div class="home-credit">{{ heroSliderImgCredit1 }}</div>
     </div>
 
     <div class="vanilla-slide">
       <picture>
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1595320104/space_desk_pf6xpx.jpg
-          "
+          srcset="{{ heroSliderImgDesk2 | url }}"
           media="(min-width: 1000px)"
         />
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1589047081/ipad/space_yvvwsu.jpg
-          "
+          srcset="{{ heroSliderImgTablet2 | url }}"
           media="(min-width: 600px)"
         />
         <img
-          src="https://res.cloudinary.com/nrityagram/image/upload/v1576171495/mobile/space_eyaqcj.jpg"
-          alt="slide 1"
+          src="{{ heroSliderImgMobile2 | url }}"
+          alt="slide 2"
           height="auto"
         />
       </picture>
-      <div class="home-credit">Credit: Sonia Manchanda</div>
+      <div class="home-credit">{{ heroSliderImgCredit2 }}</div>
     </div>
 
     <div class="vanilla-slide">
       <picture>
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1569697662/bijayini_d44uhh.jpg
-          "
+          srcset="{{ heroSliderImgDesk3 | url }}"
           media="(min-width: 1000px)"
         />
         <source
-          srcset="
-            https://res.cloudinary.com/nrityagram/image/upload/v1589036580/ipad/Bijayini-Sathpathy_eqcdcp.jpg
-          "
+          srcset="{{ heroSliderImgTablet3 | url }}"
           media="(min-width: 600px)"
         />
         <img
-          src="https://res.cloudinary.com/nrityagram/image/upload/v1576166191/mobile/Bijayini-Sathpathy_tdfb4l.jpg"
-          alt="slide 1"
+          src="{{ heroSliderImgMobile3 | url }}"
+          alt="slide 2"
           height="auto"
         />
       </picture>
-      <div class="home-credit">Credit: Bijayini Satpathy</div>
+      <div class="home-credit">{{ heroSliderImgCredit3 }}</div>
     </div>
   </div>
 
