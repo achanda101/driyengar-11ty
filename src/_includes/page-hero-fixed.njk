@@ -149,32 +149,7 @@ homePage: false
     false
   );
 </script>
-{% endif %}
-
-<!-- <script>
-  var heroImage = document.getElementsByClassName("hero-image")[0];
-  var heroCredit = document.getElementsByClassName("hero--credit")[0];
-  if (heroImage) {
-    if (window.innerWidth > 1199) {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageDesk;
-    } else if (window.innerWidth > 599) {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageTablet;
-    } else {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageMobile;
-    }
-  }
-  if (heroCredit) {
-    if (window.innerWidth > 1199) {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditDesk;
-    } else if (window.innerWidth > 599) {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditTablet;
-    } else {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
-    }
-  }
-</script> -->
-
-{% if carousels %}
+{% endif %} {% if carousels %}
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script>
   var stdFlktyElemList = document.querySelectorAll(".flick-carousel--standard");
