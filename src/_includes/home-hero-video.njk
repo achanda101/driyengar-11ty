@@ -160,7 +160,7 @@ homePage: true
     "load",
     function () {
       if (heroVideo) {
-        // HACK to get around this error which does not make the video autoplay on page load
+        // HACK to get around this error which does not make the unmuted video autoplay on page load
         // Uncaught (in promise) DOMException: play() failed because
         // the user didn't interact with the document first
         heroVideo.muted = false;
