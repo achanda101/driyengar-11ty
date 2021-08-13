@@ -56,10 +56,16 @@
 
   .hero-video--text {
     text-align: right;
-    font-family: var(--banner-home-title-font-family);
-    font-size: calc(2.5rem + 3.5vw);
-    line-height: calc(2.6rem + 3.5vw);
-    padding-bottom: 22px;
+    font-family: var(--banner-title-font-family);
+    font-size: calc(2.2rem + 3.5vw);
+    line-height: calc(2.8rem + 3.5vw);
+    padding-bottom: 27px;
+    &.homepage {
+      font-family: var(--banner-home-title-font-family);
+      font-size: calc(2.5rem + 3.5vw);
+      line-height: calc(2.6rem + 3.5vw);
+      padding-bottom: 22px;
+    }
   }
   .hero-video--tagline {
     font-family: var(--sans-serif-font-family);
