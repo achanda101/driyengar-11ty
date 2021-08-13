@@ -156,28 +156,44 @@ homePage: true
   var heroMiscContent =
     document.getElementsByClassName("hero-misc--content")[0];
 
-  if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
-    let tl = gsap.timeline();
+  window.addEventListener(
+    "load",
+    function () {
+      if (heroVideo) {
+        // HACK to get around this error which does not make the video autoplay on page load
+        // Uncaught (in promise) DOMException: play() failed because
+        // the user didn't interact with the document first
+        heroVideo.muted = true;
+        heroVideo.play();
+        heroVideo.muted = false;
+        heroVideo.play();
+      }
 
-    tl.from(heroVideoContent, { autoAlpha: 0 });
-    // insert exactly 2 seconds from the start of the timeline
-    tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
-    // insert at the END of the previous animation
-    tl.fromTo(
-      heroVideoTagline,
-      { y: -30, alpha: 0 },
-      { duration: 2, y: 0, alpha: 1 },
-      ">"
-    );
-    tl.fromTo(heroVideoButtonList, { alpha: 0 }, { duration: 1, alpha: 1 });
-    if (navBarDeskElem) {
-      // this solves the FOUC problem (flash of unstyled content)
-      tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
-    }
-    if (heroMiscContent) {
-      tl.from(heroMiscContent, { duration: 2, autoAlpha: 0 }, ">");
-    }
-  }
+      if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
+        let tl = gsap.timeline();
+
+        tl.from(heroVideoContent, { autoAlpha: 0 });
+        // insert exactly 2 seconds from the start of the timeline
+        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+        // insert at the END of the previous animation
+        tl.fromTo(
+          heroVideoTagline,
+          { y: -30, alpha: 0 },
+          { duration: 2, y: 0, alpha: 1 },
+          ">"
+        );
+        tl.fromTo(heroVideoButtonList, { alpha: 0 }, { duration: 1, alpha: 1 });
+        if (navBarDeskElem) {
+          // this solves the FOUC problem (flash of unstyled content)
+          tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
+        }
+        if (heroMiscContent) {
+          tl.from(heroMiscContent, { duration: 2, autoAlpha: 0 }, ">");
+        }
+      }
+    },
+    false
+  );
 </script>
 {% endif %} {% if heroType == "slider" %}
 <script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
