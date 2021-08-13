@@ -13,8 +13,9 @@ homePage: false
   alt="hero image description"
 >
   <div class="hero--content">
+    {% if heroText %}
     <div class="hero--text">{{ heroText }}</div>
-    {% if heroTagline %}
+    {% endif %} {% if heroTagline %}
     <div class="hero--tagline">{{ heroTagline }}</div>
     {% endif %} {% if heroDeskCredit and heroTabCredit and heroMobCredit %}
     <div
@@ -29,13 +30,16 @@ homePage: false
 {% endif %} {% if heroType == "video" %}
 <div class="hero-video">
   <div class="hero-video--content">
+    {% if heroText %}
     <div class="hero-video--text">{{ heroText }}</div>
+    {% endif %} {% if heroTagline %}
     <div class="hero-video--tagline">{{ heroTagline }}</div>
+    {% endif %}
   </div>
   <div class="volume-icon">
     <i class="fas fa-volume-up"></i>
   </div>
-  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
+  <video src="{{ heroVideo }}" loop autoplay id="heroVideo"></video>
 </div>
 {% endif %}
 
