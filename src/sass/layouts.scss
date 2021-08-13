@@ -65,6 +65,19 @@
     max-width: 75%;
     margin: 0 auto;
   }
+  &.container-flkty {
+    max-width: 65vw;
+    margin: 0 auto;
+  }
+}
+
+// Mobile + Tablet
+@media only screen and (max-width: 800px) {
+  .multi-row-section {
+    &.container-flkty {
+      max-width: 100vw;
+    }
+  }
 }
 
 .multi-column-grid {

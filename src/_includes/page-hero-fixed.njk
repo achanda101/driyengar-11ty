@@ -1,11 +1,10 @@
 ---
 layout: base.njk
-heroType: "image"
 homePage: false
 ---
 
 <span id="innerPage" style="visibility: hidden"></span>
-{% if heroDesk %}
+{% if heroType == "image" %}
 <div
   class="hero-image"
   data-hero-image-desk="{{ heroDesk }}"
@@ -27,14 +26,48 @@ homePage: false
     {% endif %}
   </div>
 </div>
+{% endif %} {% if heroType == "video" %}
+<div class="hero-video">
+  <div class="hero-video--content">
+    <div class="hero-video--text">{{ heroText }}</div>
+    <div class="hero-video--tagline">{{ heroTagline }}</div>
+  </div>
+  <div class="volume-icon">
+    <i class="fas fa-volume-up"></i>
+  </div>
+  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
+</div>
 {% endif %}
 
 <main>
   {{ content | safe }}
 </main>
 
-{% if heroText %}
+{% if heroType == "image" %}
 <script>
+  // Responsive Banner Image
+  var heroImage = document.getElementsByClassName("hero-image")[0];
+  var heroCredit = document.getElementsByClassName("hero--credit")[0];
+  if (heroImage) {
+    if (window.innerWidth > 1199) {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageDesk;
+    } else if (window.innerWidth > 599) {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageTablet;
+    } else {
+      heroImage.style.backgroundImage = heroImage.dataset.heroImageMobile;
+    }
+  }
+  if (heroCredit) {
+    if (window.innerWidth > 1199) {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditDesk;
+    } else if (window.innerWidth > 599) {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditTablet;
+    } else {
+      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
+    }
+  }
+
+  // GSAP timeline for bringing in the overlaid content on the banner image
   var heroContent = document.getElementsByClassName("hero--content")[0];
   var heroText = document.getElementsByClassName("hero--text")[0];
   var heroTagline = document.getElementsByClassName("hero--tagline")[0];
@@ -59,9 +92,56 @@ homePage: false
     }
   }
 </script>
+{% endif %} {% if heroType == "slider" %}
+<script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
+<script>
+  var vanillaSlideshow = document.getElementById("vanilla-slideshow-container");
+  if (vanillaSlideshow) {
+    vanillaSlideshow.init({
+      // auto slideshow, options: true or false
+      slideshow: true,
+      // slideshow delay
+      delay: 3000,
+      // display arrows, options: true or false
+      arrows: true,
+      // display indicators, options: true or false
+      indicators: false,
+      // start slideshow randomly, options: true or false
+      random: false,
+      // animation speed
+      animationSpeed: "1.75s",
+    });
+  }
+</script>
+{% endif %} {% if heroType == "video" %}
+<script>
+  var heroVideo = document.getElementById("heroVideo");
+  var heroVideoContent = document.getElementsByClassName(
+    "hero-video--content"
+  )[0];
+  var heroVideoText = document.getElementsByClassName("hero-video--text")[0];
+  var heroVideoTagline = document.getElementsByClassName(
+    "hero-video--tagline"
+  )[0];
+
+  if (heroVideoText && heroVideoTagline) {
+    let tl = gsap.timeline();
+
+    tl.from(heroVideoContent, { autoAlpha: 0 });
+    // insert exactly 2 seconds from the start of the timeline
+    tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+    // insert at the END of the previous animation
+    tl.fromTo(
+      heroVideoTagline,
+      { y: -30, alpha: 0 },
+      { duration: 2, y: 0, alpha: 1 },
+      ">"
+    );
+  }
+</script>
 {% endif %}
 
-<script>
+<!-- <script>
   var heroImage = document.getElementsByClassName("hero-image")[0];
   var heroCredit = document.getElementsByClassName("hero--credit")[0];
   if (heroImage) {
@@ -82,4 +162,20 @@ homePage: false
       heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
     }
   }
+</script> -->
+
+{% if carousels %}
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+  var stdFlktyElemList = document.querySelectorAll(".flick-carousel--standard");
+  if (stdFlktyElemList) {
+    stdFlktyElemList.forEach((stdFlktyElem) => {
+      var stdFlktyObj = new Flickity(stdFlktyElem, {
+        pageDots: false,
+      });
+      // This avoids FOUC -- flash of unstyled content
+      stdFlktyElem.style.opacity = 1.0;
+    });
+  }
 </script>
+{% endif %}

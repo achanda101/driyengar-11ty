@@ -12,14 +12,7 @@
       rel="stylesheet"
     />
     {% if carousels %}
-    <link
-      rel="stylesheet"
-      href="{{ '/utils/owl-css/owl.carousel.min.css' | url }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ '/utils/owl-css/owl.theme.default.min.css' | url }}"
-    />
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     {% endif %}
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
     <link
@@ -354,12 +347,7 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    {% if carousels %}
-    <script
-      src="{{ '/utils/owl.carousel.min.js' | url }}"
-      defer="defer"
-    ></script>
-    {% endif %}
+
     <script>
       var logoImgMob = document.getElementsByClassName("logo-box")[0];
       var logoImgDesk = document.getElementsByClassName("logo-box")[1];
@@ -377,34 +365,15 @@
       var vanillaSlideshow = document.getElementById(
         "vanilla-slideshow-container"
       );
-      // When INNER page has a banner image
-      var heroContent = document.getElementsByClassName("hero--content")[0];
-      var heroText = document.getElementsByClassName("hero--text")[0];
-      var heroTagline = document.getElementsByClassName("hero--tagline")[0];
-      var heroButtonList = document.getElementsByClassName("hero--buttons")[0];
-
+    
       // When HOMEPAGE has a banner video
       var heroVideo = document.getElementById("heroVideo");
-      var heroVideoContent = document.getElementsByClassName(
-        "hero-video--content"
-      )[0];
-      var heroVideoText =
-        document.getElementsByClassName("hero-video--text")[0];
-      var heroVideoTagline = document.getElementsByClassName(
-        "hero-video--tagline"
-      )[0];
-      var heroVideoButtonList = document.getElementsByClassName(
-        "hero-video--buttons"
-      )[0];
-      var heroMiscContent =
-        document.getElementsByClassName("hero-misc--content")[0];
       var audioToggleElem = document.getElementsByClassName("volume-icon")[0];
 
       var ht = window.innerHeight;
       var a_third_ht = ht * 0.33;
 
       // Global variables
-  
       const navbar_bg_color_solid = "rgba(0, 0, 0, 1.0)";
       const navbar_bg_color_trans = "rgba(0, 0, 0, 0)";
       const navbar_bg_color_semitrans = "linear-gradient(to bottom, rgb(0, 0, 0, 0.4), rgba(0, 0, 0, 0))";
@@ -521,40 +490,14 @@
           return false;
         });
 
-        if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
-          let tl = gsap.timeline();
-
-          tl.from(heroVideoContent, { autoAlpha: 0 });
-          // insert exactly 2 seconds from the start of the timeline
-          tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
-          // insert at the END of the previous animation
-          tl.fromTo(
-            heroVideoTagline,
-            { y: -30, alpha: 0 },
-            { duration: 2, y: 0, alpha: 1 },
-            ">"
-          );
-          tl.fromTo(
-            heroVideoButtonList,
-            { alpha: 0 },
-            { duration: 1, alpha: 1 }
-          );
-          if (navBarDeskElem) {
-            // this solves the FOUC problem (flash of unstyled content)
-            tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
-          }
-          if (heroMiscContent) {
-            tl.from(heroMiscContent, { duration: 2, autoAlpha: 0 }, ">");
-          }
-        } else {
+        // If the banner is NOT a video or it is an INNERPAGE, display the menubar right away
+        if(!heroVideo || innerPage) {
           if (navBarDeskElem) navBarDeskElem.style.visibility = "visible";
         }
       });
     </script>
 
-    {% if carousels %}
-    <script src="{{ '/utils/owl_custom.js' | url }}"></script>
-    {% endif %} {% if heroType == "slider" %}
+    <!-- {% if heroType == "slider" %}
     <script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
     <script>
       if (vanillaSlideshow) {
@@ -574,6 +517,6 @@
         });
       }
     </script>
-    {% endif %}
+    {% endif %} -->
   </body>
 </html>

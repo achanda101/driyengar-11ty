@@ -10,9 +10,12 @@
 
 p {
   max-width: 70%;
-  padding: 0.5em 0;
+  padding: 1.5em 0 0;
   line-height: 28px;
-  // margin: 0 auto;
+  margin-top: -20px;
+  &:nth-child(n + 1) {
+    padding-bottom: 0.25em;
+  }
 }
 
 h1,
@@ -32,61 +35,91 @@ img {
 }
 
 .link {
-  display: inline-block;
+  display: inline;
+  width: fit-content;
   text-decoration: none;
   font-family: var(--sans-serif-font-family);
-  font-weight: var(--medium-font-weight);
+  font-weight: var(--strong-sansserif-font-weight);
   color: var(--threequarter-white);
-  text-transform: capitalize;
   transition: all 0.5s;
+  padding: 1em 0;
+  &.underline {
+    display: inline;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    padding: 0;
+  }
   &:hover {
     color: var(--body-text-color);
-    font-weight: var(--medium-sansserif-font-weight);
     border-color: var(--threequarter-white);
   }
 }
 
-.gg-chevron-double-right-o {
-  box-sizing: border-box;
+.fancy-link {
+  display: block;
   position: relative;
-  display: inline-block;
-  border: 2px solid var(--semi-white);
-  border-radius: 40px;
-  background-color: transparent;
-  width: 32px;
-  height: 32px;
-  margin-right: 5px;
-  vertical-align: middle;
-  // &:hover {
-  //   border: 2px solid var(--threequarter-white);
-  //   background-color: var(semi-white);
-  // }
+  width: fit-content;
+  text-decoration: none;
+  font-family: var(--sans-serif-font-family);
+  font-weight: var(--strong-sansserif-font-weight);
+  color: var(--threequarter-white);
+  transition: all 0.5s;
+  padding-top: 2em;
+  padding-left: 2.5em;
+  margin-top: -20px;
+  &:nth-child(n + 1) {
+    padding-bottom: 1em;
+  }
+  &:hover {
+    color: var(--body-text-color);
+    border-color: var(--threequarter-white);
+  }
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+    position: absolute;
+    left: 0;
+    top: 1.75em;
+    background: transparent;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--semi-white);
+    color: var(--semi-white);
+    box-sizing: border-box;
+    transition: all 0.5s;
+  }
+  &:hover::before {
+    content: "\f061";
+    border: 2px solid var(--threequarter-white);
+    color: var(--threequarter-white);
+  }
 }
 
-.gg-chevron-double-right-o::after,
-.gg-chevron-double-right-o::before {
-  content: "";
-  display: inline-block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid var(--semi-white);
-  border-top: 2px solid var(--semi-white);
-  transform: rotate(45deg);
-  top: 9px;
-  right: 8px;
+ul {
+  list-style-type: circle;
+  background-color: var(--background-color--light);
+  color: var(--threequarter-white);
+  border-radius: 15px;
+  margin-top: 0;
+  li {
+    line-height: 24px;
+    padding: 5px;
+    padding-right: 15px;
+    &:first-of-type {
+      padding-top: 15px;
+    }
+    &:last-of-type {
+      padding-bottom: 15px;
+    }
+  }
 }
-
-.gg-chevron-double-right-o::after {
-  right: 14px;
-}
-
-// .gg-chevron-double-right-o:hover::before,
-// .gg-chevron-double-right-o:hover::after {
-//   border-right: 2px solid var(--threequarter-white);
-//   border-top: 2px solid var(--threequarter-white);
-// }
 
 // Scroll control offset: make the anchored elements sit below the navbar
 // https://css-tricks.com/hash-tag-links-padding/
@@ -233,6 +266,12 @@ img {
     max-width: 70%;
     padding: 0.5em 0 0;
     line-height: 28px;
+  }
+
+  ul {
+    li {
+      list-style: none;
+    }
   }
 
   // Scroll control offset: make the anchored elements sit below the navbar

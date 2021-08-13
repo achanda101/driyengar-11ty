@@ -1,15 +1,31 @@
 ---
 layout: base.njk
-heroType: "video"
 homePage: true
 ---
 
-{% if heroImage %}
-<div class="hero-image" style="background-image: {{ heroImage }}">
-  <div class="hero-text">{{ heroText }}</div>
-  <div class="hero-credit">Credit: Vodkarani Codes</div>
+{% if heroType == "image" %}
+<div
+  class="hero-image"
+  data-hero-image-desk="{{ heroDesk }}"
+  data-hero-image-tablet="{{ heroTab }}"
+  data-hero-image-mobile="{{ heroMob }}"
+  alt="hero image description"
+>
+  <div class="hero--content">
+    <div class="hero--text">{{ heroText }}</div>
+    {% if heroTagline %}
+    <div class="hero--tagline">{{ heroTagline }}</div>
+    {% endif %} {% if heroDeskCredit and heroTabCredit and heroMobCredit %}
+    <div
+      class="hero--credit"
+      data-hero-credit-desk="{{ heroDeskCredit }}"
+      data-hero-credit-tablet="{{ heroTabCredit }}"
+      data-hero-credit-mobile="{{ heroMobCredit }}"
+    ></div>
+    {% endif %}
+  </div>
 </div>
-{% endif %} {% if heroSlider %}
+{% endif %} {% if heroType == "slider" %}
 <div id="vanilla-slideshow-container">
   <div id="vanilla-slideshow">
     <div class="vanilla-slide">
@@ -84,7 +100,7 @@ homePage: true
     <div class="tagline-credit">The New York Times</div>
   </div>
 </div>
-{% endif %} {% if heroVideo %}
+{% endif %} {% if heroType == "video" %}
 <div class="hero-video">
   <div class="hero-video--content">
     <div class="hero-video--text">Dr. Seshadri Iyengar</div>
@@ -121,8 +137,65 @@ homePage: true
   {{ content | safe }}
 </main>
 
-{% if heroText %}
+{% if heroType == "video" %}
 <script>
-  gsap.to(".hero-text", { duration: 2, y: 30 });
+  var navBarDeskElem = document.getElementsByClassName("navbar")[1];
+  var heroVideo = document.getElementById("heroVideo");
+  var heroVideoContent = document.getElementsByClassName(
+    "hero-video--content"
+  )[0];
+  var heroVideoText = document.getElementsByClassName("hero-video--text")[0];
+  var heroVideoTagline = document.getElementsByClassName(
+    "hero-video--tagline"
+  )[0];
+  var heroVideoButtonList = document.getElementsByClassName(
+    "hero-video--buttons"
+  )[0];
+  var heroMiscContent =
+    document.getElementsByClassName("hero-misc--content")[0];
+
+  if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
+    let tl = gsap.timeline();
+
+    tl.from(heroVideoContent, { autoAlpha: 0 });
+    // insert exactly 2 seconds from the start of the timeline
+    tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+    // insert at the END of the previous animation
+    tl.fromTo(
+      heroVideoTagline,
+      { y: -30, alpha: 0 },
+      { duration: 2, y: 0, alpha: 1 },
+      ">"
+    );
+    tl.fromTo(heroVideoButtonList, { alpha: 0 }, { duration: 1, alpha: 1 });
+    if (navBarDeskElem) {
+      // this solves the FOUC problem (flash of unstyled content)
+      tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
+    }
+    if (heroMiscContent) {
+      tl.from(heroMiscContent, { duration: 2, autoAlpha: 0 }, ">");
+    }
+  }
+</script>
+{% endif %} {% if heroType == "slider" %}
+<script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
+<script>
+  var vanillaSlideshow = document.getElementById("vanilla-slideshow-container");
+  if (vanillaSlideshow) {
+    vanillaSlideshow.init({
+      // auto slideshow, options: true or false
+      slideshow: true,
+      // slideshow delay
+      delay: 3000,
+      // display arrows, options: true or false
+      arrows: true,
+      // display indicators, options: true or false
+      indicators: false,
+      // start slideshow randomly, options: true or false
+      random: false,
+      // animation speed
+      animationSpeed: "1.75s",
+    });
+  }
 </script>
 {% endif %}
