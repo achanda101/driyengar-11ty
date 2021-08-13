@@ -131,7 +131,7 @@ homePage: true
   <div class="volume-icon">
     <i class="fas fa-volume-up"></i>
   </div>
-  <video src="{{ heroVideo }}" loop autoplay id="heroVideo"></video>
+  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
 </div>
 {% endif %}
 
@@ -163,10 +163,7 @@ homePage: true
         // HACK to get around this error which does not make the video autoplay on page load
         // Uncaught (in promise) DOMException: play() failed because
         // the user didn't interact with the document first
-        heroVideo.muted = true;
-        heroVideo.play();
         heroVideo.muted = false;
-        heroVideo.play();
       }
 
       if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
