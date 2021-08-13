@@ -156,15 +156,21 @@ homePage: true
   var heroMiscContent =
     document.getElementsByClassName("hero-misc--content")[0];
 
+  if (heroVideo) {
+    heroVideo.muted = false;
+    heroVideo.play();
+  }
+
   window.addEventListener(
     "load",
     function () {
-      if (heroVideo) {
-        // HACK to get around this error which does not make the unmuted video autoplay on page load
-        // Uncaught (in promise) DOMException: play() failed because
-        // the user didn't interact with the document first
-        heroVideo.muted = false;
-      }
+      // if (heroVideo) {
+      // HACK to get around this error which does not make the unmuted video autoplay on page load
+      // Uncaught (in promise) DOMException: play() failed because
+      // the user didn't interact with the document first
+      // heroVideo.muted = false;
+      // heroVideo.play();
+      // }
 
       if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
         let tl = gsap.timeline();
