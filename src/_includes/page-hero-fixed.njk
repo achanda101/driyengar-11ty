@@ -37,7 +37,7 @@ homePage: false
     {% endif %}
   </div>
   <div class="volume-icon">
-    <i class="fas fa-volume-up"></i>
+    <i class="fas fa-volume-mute"></i>
   </div>
   <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
 </div>
@@ -131,13 +131,6 @@ homePage: false
   window.addEventListener(
     "load",
     function () {
-      if (heroVideo) {
-        // HACK to get around this error which does not make the unmuted video autoplay on page load
-        // Uncaught (in promise) DOMException: play() failed because
-        // the user didn't interact with the document firs
-        heroVideo.muted = false;
-      }
-
       if (heroVideoText && heroVideoTagline) {
         let tl = gsap.timeline();
 
