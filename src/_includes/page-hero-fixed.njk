@@ -128,20 +128,35 @@ homePage: false
     "hero-video--tagline"
   )[0];
 
-  if (heroVideoText && heroVideoTagline) {
-    let tl = gsap.timeline();
+  window.addEventListener(
+    "load",
+    function () {
+      if (heroVideo) {
+        // HACK to get around this error which does not make the video autoplay on page load
+        // Uncaught (in promise) DOMException: play() failed because
+        // the user didn't interact with the document first
+        heroVideo.muted = true;
+        heroVideo.play();
+        heroVideo.muted = false;
+      }
 
-    tl.from(heroVideoContent, { autoAlpha: 0 });
-    // insert exactly 2 seconds from the start of the timeline
-    tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
-    // insert at the END of the previous animation
-    tl.fromTo(
-      heroVideoTagline,
-      { y: -30, alpha: 0 },
-      { duration: 2, y: 0, alpha: 1 },
-      ">"
-    );
-  }
+      if (heroVideoText && heroVideoTagline) {
+        let tl = gsap.timeline();
+
+        tl.from(heroVideoContent, { autoAlpha: 0 });
+        // insert exactly 2 seconds from the start of the timeline
+        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+        // insert at the END of the previous animation
+        tl.fromTo(
+          heroVideoTagline,
+          { y: -30, alpha: 0 },
+          { duration: 2, y: 0, alpha: 1 },
+          ">"
+        );
+      }
+    },
+    false
+  );
 </script>
 {% endif %}
 
