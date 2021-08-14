@@ -152,12 +152,10 @@ homePage: false
 {% endif %} {% if carousels %}
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script>
-  var stdFlktyElemList = document.querySelectorAll(".flick-carousel--standard");
+  var stdFlktyElemList = document.querySelectorAll(".flick-carousel--panorama");
   if (stdFlktyElemList) {
     stdFlktyElemList.forEach((stdFlktyElem) => {
-      var stdFlktyObj = new Flickity(stdFlktyElem, {
-        pageDots: false,
-      });
+      var stdFlktyObj = new Flickity(stdFlktyElem);
       // This avoids FOUC -- flash of unstyled content
       stdFlktyElem.style.opacity = 1.0;
     });
