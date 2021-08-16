@@ -133,7 +133,7 @@
   // right position same as padding on navbar-desk
   right: 5vw;
   z-index: 5;
-  width: 69%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-content: flex-end;
@@ -143,8 +143,8 @@
     text-align: right;
     font-family: var(--banner-title-font-family);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    font-size: calc(1.95rem + 3.5vw);
-    line-height: calc(2.3rem + 3.5vw);
+    font-size: calc(1.75rem + 3.5vw);
+    line-height: calc(2.1rem + 3.5vw);
     padding-bottom: 22px;
   }
   .hero--credit {
@@ -216,15 +216,25 @@
     margin-top: calc(var(--navbar-desk-height) * (-1));
   }
 
+  .hero-video--content {
+    &.inner-page {
+      right: 13vw;
+      .hero-video--text {
+        font-size: calc(1.75rem + 3.5vw);
+        line-height: calc(2.1rem + 3.5vw);
+      }
+    }
+  }
+
   .hero--content {
     // this solves the FOUC problem (flash of unstyled content)
     visibility: hidden;
     position: absolute;
     bottom: 20vh;
-    // right position same as padding on navbar-desk
-    right: 3vw;
+    // right position NOT the same as padding on navbar-desk
+    right: 13vw;
     z-index: 5;
-    width: 65%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-content: flex-end;
@@ -233,8 +243,8 @@
     .hero--text {
       font-family: var(--banner-title-font-family);
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      font-size: calc(1.95rem + 3.5vw);
-      line-height: calc(2.3rem + 3.5vw);
+      font-size: calc(1.75rem + 3.5vw);
+      line-height: calc(2.1rem + 3.5vw);
       padding-bottom: 22px;
     }
     .hero--credit {

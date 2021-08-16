@@ -26,12 +26,21 @@ h5 {
   max-width: 70%;
   font-family: var(--sans-serif-font-family);
   font-weight: var(--medium-font-weight);
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+  &.medium {
+    max-width: 50%;
+  }
+  &.rounded {
+    border-radius: 3%;
+  }
 }
 
 .link {

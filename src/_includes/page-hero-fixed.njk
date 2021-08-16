@@ -29,7 +29,7 @@ homePage: false
 </div>
 {% endif %} {% if heroType == "video" %}
 <div class="hero-video">
-  <div class="hero-video--content">
+  <div class="hero-video--content inner-page">
     {% if heroText %}
     <div class="hero-video--text">{{ heroText }}</div>
     {% endif %} {% if heroTagline %}
@@ -152,12 +152,12 @@ homePage: false
 {% endif %} {% if carousels %}
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script>
-  var stdFlktyElemList = document.querySelectorAll(".flick-carousel--panorama");
-  if (stdFlktyElemList) {
-    stdFlktyElemList.forEach((stdFlktyElem) => {
-      var stdFlktyObj = new Flickity(stdFlktyElem);
+  var flktyElemList = document.querySelectorAll(".flick-carousel");
+  if (flktyElemList) {
+    flktyElemList.forEach((flktyElem) => {
+      var stdFlktyObj = new Flickity(flktyElem);
       // This avoids FOUC -- flash of unstyled content
-      stdFlktyElem.style.opacity = 1.0;
+      flktyElem.style.opacity = 1.0;
     });
   }
 </script>
