@@ -38,6 +38,9 @@ img {
   &.medium {
     max-width: 50%;
   }
+  &.large {
+    max-width: 80%;
+  }
   &.rounded {
     border-radius: 3%;
   }
