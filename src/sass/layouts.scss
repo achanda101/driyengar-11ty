@@ -1,7 +1,11 @@
 .multi-column-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: center;
+
+  > * + * {
+    margin-left: 2vw;
+  }
   &.pack-tight {
     justify-content: space-evenly;
   }
@@ -37,24 +41,30 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  &[data-gridgap="3vw"] {
+    // gap: 3vw;
+    > * + * {
+      margin-top: 3vw;
+    }
+  }
   &[data-gridgap="12px"] {
     // gap: 12px;
     // flex gap does not work in safari < v14
     // check if this work-around works for safari
     > * + * {
-      margin-bottom: 12px;
+      margin-top: 12px;
     }
   }
   &[data-gridgap="15px"] {
     // gap: 15px;
     > * + * {
-      margin-bottom: 15px;
+      margin-top: 15px;
     }
   }
   &[data-gridgap="30px"] {
     // gap: 30px;
     > * + * {
-      margin-bottom: 30px;
+      margin-top: 30px;
     }
   }
   &.container {
