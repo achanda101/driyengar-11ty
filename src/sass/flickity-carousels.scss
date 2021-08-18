@@ -4,41 +4,9 @@
 
 .flick-carousel {
   width: 100%;
-  &.panorama {
-    // Image -- width : height = 1330 : 650
-    // carousel width = 100% of 65vw = 65vw
-    // carousel height = 65vw * (650/1300) = 65vw * 0.5 = 32.5vw
-    // adding caption box height
-    height: calc(32.5vw + 70px);
-    margin: 0 auto;
-    &.no-caption {
-      height: 32.5vw;
-    }
-  }
+  background-color: var(--background-color-dark);
+  border-radius: 0 0 10px 10px;
 
-  &.standard {
-    // Image -- width : height = 900 : 600
-    // carousel width = 100% of 65vw = 65vw
-    // carousel height = 65vw * (600/900) = 65vw * 0.667 = 43.36vw
-    // adding caption box height
-    height: calc(43.36vw + 70px);
-    margin: 0 auto;
-    &.no-caption {
-      height: 43.36vw;
-    }
-  }
-
-  &.square {
-    // Image -- width : height = 600 : 600
-    // carousel width = 80% of 65vw = 52vw
-    // carousel height = 52vw * (600/600) = 52vw * 1 = 52vw
-    // adding caption box height
-    height: calc(52vw + 70px);
-    margin: 0 auto;
-    &.no-caption {
-      height: 52vw;
-    }
-  }
   .carousel-cell {
     width: 100%;
     height: 100%;
@@ -68,15 +36,84 @@
       font-size: clamp(14px, 1.5vw, 16px);
       line-height: clamp(22px, 2vw, 24px);
       text-align: center;
-      border-radius: 0 0 10px 10px;
-      -webkit-box-shadow: 0 1px 1px rgba(4, 13, 41, 0.3),
-        0 2px 2px rgba(4, 13, 41, 0.25), 0 4px 4px rgba(4, 13, 41, 0.2),
-        0 8px 8px rgba(4, 13, 41, 0.25), 0 16px 16px rgba(4, 13, 41, 0.1);
-      box-shadow: 0 1px 1px rgba(4, 13, 41, 0.3),
-        0 2px 2px rgba(4, 13, 41, 0.25), 0 4px 4px rgba(4, 13, 41, 0.25),
-        0 8px 8px rgba(4, 13, 41, 0.2), 0 16px 16px rgba(4, 13, 41, 0.1);
     }
   }
+
+  &.panorama {
+    // Image -- width : height = 1330 : 650
+    // carousel width = 100% of 65vw = 65vw
+    // carousel height = 65vw * (650/1300) = 65vw * 0.5 = 32.5vw
+    // adding caption box height
+    height: calc(32.5vw + 70px);
+    margin: 0 auto;
+    .carousel-cell {
+      .slide-img {
+        img {
+          height: 32.5vw;
+        }
+      }
+    }
+    &.no-caption {
+      height: 32.5vw;
+      .carousel-cell {
+        height: 32.5vw;
+      }
+    }
+    .carousel-cell {
+      height: calc(32.5vw + 70px);
+    }
+  }
+
+  &.standard {
+    // Image -- width : height = 900 : 600
+    // carousel width = 100% of 65vw = 65vw
+    // carousel height = 65vw * (600/900) = 65vw * 0.667 = 43.36vw
+    // adding caption box height
+    height: calc(43.36vw + 70px);
+    margin: 0 auto;
+    .carousel-cell {
+      .slide-img {
+        img {
+          height: 43.36vw;
+        }
+      }
+    }
+    &.no-caption {
+      height: 43.36vw;
+      .carousel-cell {
+        height: 43.36vw;
+      }
+    }
+    .carousel-cell {
+      height: calc(43.36vw + 70px);
+    }
+  }
+
+  &.square {
+    // Image -- width : height = 600 : 600
+    // carousel width = 80% of 65vw = 52vw
+    // carousel height = 52vw * (600/600) = 52vw * 1 = 52vw
+    // adding caption box height
+    height: calc(52vw + 70px);
+    margin: 0 auto;
+    .carousel-cell {
+      .slide-img {
+        img {
+          height: 52vw;
+        }
+      }
+    }
+    &.no-caption {
+      height: 52vw;
+      .carousel-cell {
+        height: 52vw;
+      }
+    }
+    .carousel-cell {
+      height: calc(52vw + 70px);
+    }
+  }
+
   .flickity-button {
     background: transparent;
     border: 2px solid var(--threequarter-white);
