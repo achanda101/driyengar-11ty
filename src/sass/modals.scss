@@ -1,0 +1,46 @@
+.modal--global-projects {
+  position: fixed;
+  top: 15vh;
+  left: 15vw;
+  width: 70%;
+  height: fit-content;
+  z-index: 10;
+  background-color: var(--background-color--light);
+  border-radius: 5px 20px 5px;
+}
+
+.modal--close {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: #fff;
+  color: var(--very-dark-grey);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2.modal--title-box {
+  max-width: 100%;
+  background-color: var(--slanteddiv-color2);
+  color: var(--slanteddiv-color3--light);
+  padding: 10px;
+  padding-left: 50px;
+  margin: 0;
+  border-radius: 5px 20px 0 0;
+  overflow: hidden;
+}
+
+.modal--content {
+  padding: 10px;
+  h3 {
+    margin: 0;
+    max-width: 100%;
+  }
+  p {
+    max-width: 100%;
+  }
+}
