@@ -6,6 +6,7 @@
   z-index: 10;
   background-color: var(--background-color--light);
   border-radius: 5px 20px 5px;
+  display: none;
 }
 
 // Mobile + Tablet
@@ -29,6 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 h2.modal--title-box {

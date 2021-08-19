@@ -56,6 +56,7 @@ img {
   color: var(--threequarter-white);
   transition: all 0.5s;
   padding: 1em 0;
+  cursor: pointer;
   &.underline {
     display: inline;
     text-decoration: underline;
@@ -82,6 +83,7 @@ img {
   padding-top: 2em;
   padding-left: 2.5em;
   margin-top: -20px;
+  cursor: pointer;
   &:nth-child(n + 1) {
     padding-bottom: 1em;
   }

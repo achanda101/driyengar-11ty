@@ -161,4 +161,12 @@ homePage: false
     });
   }
 </script>
+{% endif %} {% if modals %}
+<script>
+  document.querySelectorAll(".open-modal").forEach((modalLink) => {
+    modalLink.addEventListener("click", (e) => {
+      console.log(e);
+    });
+  });
+</script>
 {% endif %}
