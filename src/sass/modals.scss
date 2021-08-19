@@ -7,6 +7,9 @@
   background-color: var(--background-color--light);
   border-radius: 5px 20px 5px;
   display: none;
+  &.is-open {
+    display: block;
+  }
 }
 
 // Mobile + Tablet
