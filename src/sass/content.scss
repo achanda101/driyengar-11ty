@@ -275,16 +275,22 @@ ul {
     max-width: 70%;
   }
 
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 28px;
+    padding-bottom: 1em;
+  }
+
   p {
     max-width: 70%;
     padding: 0.5em 0 0;
     line-height: 28px;
-  }
-
-  ul {
-    li {
-      list-style: none;
-    }
   }
 
   // Scroll control offset: make the anchored elements sit below the navbar
