@@ -136,20 +136,32 @@
 
 .img-wrapper {
   max-width: 22vw;
-  border-radius: 3%;
-  overflow: hidden;
-  -webkit-box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4),
-    0 2px 2px rgba(4, 13, 41, 0.35), 0 4px 4px rgba(4, 13, 41, 0.3),
-    0 8px 8px rgba(4, 13, 41, 0.35), 0 16px 16px rgba(4, 13, 41, 0.2);
-  box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4), 0 2px 2px rgba(4, 13, 41, 0.35),
-    0 4px 4px rgba(4, 13, 41, 0.35), 0 8px 8px rgba(4, 13, 41, 0.3),
-    0 16px 16px rgba(4, 13, 41, 0.2);
+  &.drop-shadow {
+    -webkit-box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4),
+      0 2px 2px rgba(4, 13, 41, 0.35), 0 4px 4px rgba(4, 13, 41, 0.3),
+      0 8px 8px rgba(4, 13, 41, 0.35), 0 16px 16px rgba(4, 13, 41, 0.2);
+    box-shadow: 0 1px 1px rgba(4, 13, 41, 0.4), 0 2px 2px rgba(4, 13, 41, 0.35),
+      0 4px 4px rgba(4, 13, 41, 0.35), 0 8px 8px rgba(4, 13, 41, 0.3),
+      0 16px 16px rgba(4, 13, 41, 0.2);
+  }
+
   &.rounded {
-    img {
-      //   border-radius: 3%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    border-radius: 3%;
+    overflow: hidden;
+  }
+  &.full-width {
+    max-width: 90%;
+  }
+  &.half-width {
+    max-width: 50%;
+    height: 100%;
+  }
+  &.center {
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
