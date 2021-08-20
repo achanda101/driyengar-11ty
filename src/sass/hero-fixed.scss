@@ -77,33 +77,6 @@
     line-height: clamp(13px, 2vw, 26px);
     text-align: right;
   }
-  .hero-video--buttons {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding-top: 30px;
-    a {
-      text-decoration: none;
-    }
-    .hero-video--button {
-      padding: 15px 20px;
-      margin-left: 20px;
-      background-color: transparent;
-      color: var(--hero-button-text-color);
-      text-transform: uppercase;
-      font-size: clamp(14px, 1.2vw, 20px);
-      font-family: var(--sans-serif-font-family);
-      font-weight: var(--medium-sansserif-font-weight);
-      border-radius: 8px;
-      border: 2px solid var(--hero-button-border-color);
-      transition: all 1s;
-      &:hover {
-        background-color: var(--hero-button-hover-color);
-        color: #000;
-        cursor: pointer;
-      }
-    }
-  }
 }
 
 .hero-misc--content {

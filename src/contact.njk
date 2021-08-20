@@ -1,0 +1,97 @@
+---
+  layout: "page-hero-fixed.njk"
+  title: "Contact | Seshadri Iyengar"
+  heroType: "image"
+  heroText: "Contact"
+  heroDesk: "url('https://res.cloudinary.com/driyengar/image/upload/v1629455546/Contact-banner-desk_udo2ci.webp')"
+  heroTab: "url('https://res.cloudinary.com/driyengar/image/upload/v1629455546/Contact-banner-ipad_bas2zj.webp')"
+  heroMob: "url('https://res.cloudinary.com/driyengar/image/upload/v1629455546/Contact-banner-mob_ytx395.webp')"
+  carousels: false
+  modals: false
+---
+
+<div class="content slanted-div default-bg right-facing">
+  <div class="multi-row-section container">
+    <div class="multi-column-section wrap-on-small">
+      <div class="contact-form">
+        <form id="contact" name="contact" method="POST">
+          <input type="hidden" name="form-name" value="contact" />
+          <label for="name">
+            <strong>Name</strong>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            size="30"
+            required="required"
+          />
+          <label for="email">
+            <strong>Email</strong>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            size="30"
+            required="required"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          />
+          <label for="phone">
+            <strong>Contact Number</strong>
+          </label>
+          <input type="text" id="phone" name="phone" size="30" />
+          <label for="subject">
+            <strong>Subject</strong>
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            size="30"
+            required="required"
+          />
+          <label for="message">
+            <strong>Message</strong>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            cols="36"
+            required="required"
+          ></textarea>
+          <button
+            type="submit"
+            form="contact"
+            value="Send"
+            class="button --pink"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+      <!-- CLOSE div contact-form -->
+      <div class="multi-row-section pack-tight">
+        <p class="full-width">
+          <a href="mailto:icfabengaluru@gmail.com" class="link underline"
+            ><i class="far fa-envelope"></i> icfabengaluru@gmail.com</a
+          >
+        </p>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15549.839162463952!2d77.56591!3d13.006366!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb50991fdafc29615!2sIYENGAR%20CENTRE%20for%20FINE%20ARTS!5e0!3m2!1sen!2sin!4v1629469121401!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <!-- CLOSE div google map -->
+      </div>
+    </div>
+    <!-- CLOSE div multi-column-section -->
+  </div>
+  <!-- CLOSE div multi-row-section -->
+</div>
