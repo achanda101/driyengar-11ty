@@ -109,8 +109,29 @@ homePage: true
       <a href="/icfa">
         <div class="hero-video--button">Iyengar Centre for Fine Arts</div>
       </a>
-      <div class="hero-video--button">Upcoming Performances</div>
+      <a href="/upcoming-events">
+        <div class="hero-video--button">Upcoming Events</div>
+      </a>
     </div>
+    <!-- <div class="modal--container">
+      <div class="modal--close"><i class="fas fa-times"></i></div>
+      <h2 class="modal--title-box">Upcoming Events</h2>
+      <div class="modal--content">
+        <ul>
+          <li>
+            <h3>Pibare Rama Rasam</h3>
+            <p>
+              Natyam by Dr Seshadri Iyengar, 6pm 12th August, 2021
+              <br>
+              <a href="https://www.youtube.com/watch?v=hQbkVkZGnLk" class="link underline">Live-stream Link</a>
+              <div class="img-wrapper rounded half-width center">
+                <img src="https://res.cloudinary.com/driyengar/image/upload/v1629510689/pibare-rama-rasam_fpq4d3.webp" alt="">
+              </div>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div> -->
   </div>
   <div class="hero-misc--content">
     <div class="hero-misc--top">
@@ -168,8 +189,8 @@ homePage: true
         let tl = gsap.timeline();
 
         tl.from(heroVideoContent, { autoAlpha: 0 });
-        // insert exactly 2 seconds from the start of the timeline
-        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+        // insert exactly 0.5 seconds from the start of the timeline
+        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0.5);
         // insert at the END of the previous animation
         tl.fromTo(
           heroVideoTagline,
@@ -210,5 +231,37 @@ homePage: true
       animationSpeed: "1.75s",
     });
   }
+</script>
+{% endif %} {% if modals %}
+<script>
+  document.querySelectorAll(".open-modal").forEach((modalLink) => {
+    modalLink.addEventListener("click", (e) => {
+      // prevent normal click behavior
+      e.preventDefault();
+      const modalToggle = e.target.closest(".open-modal");
+      if (!modalToggle) return;
+
+      const modal = modalToggle.parentNode.nextElementSibling;
+      var heroContent = document.querySelector(".hero--content");
+      if (!heroContent)
+        heroContent = document.querySelector(".hero-video--content");
+
+      if (modal.classList.contains("modal--container")) {
+        modal.classList.add("is-open");
+        modal.style.animation = "modalFadeIn 500ms forwards";
+        heroContent.classList.add("is-hidden");
+        document.body.style.overflowY = "hidden";
+
+        const closeButton = modal.querySelector(".modal--close");
+        if (closeButton) {
+          closeButton.addEventListener("click", (_) => {
+            modal.classList.remove("is-open");
+            heroContent.classList.remove("is-hidden");
+            document.body.style.overflowY = "scroll";
+          });
+        }
+      }
+    });
+  });
 </script>
 {% endif %}
