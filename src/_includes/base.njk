@@ -220,7 +220,11 @@
         {% if homePage %}
         <div class="navbar">
         {% else %}
-        <div class="navbar inner-page">
+          {% if noHero %}
+          <div class="navbar no-hero">
+          {% else %}
+          <div class="navbar inner-page">
+          {% endif %}
         {% endif %}
         {% if homePage %}
         <a href="/">
@@ -365,7 +369,8 @@
       var vanillaSlideshow = document.getElementById(
         "vanilla-slideshow-container"
       );
-    
+      const noHero = document.getElementById("noHero");
+
       // When HOMEPAGE has a banner video
       var heroVideo = document.getElementById("heroVideo");
       var audioToggleElem = document.getElementsByClassName("volume-icon")[0];
@@ -375,7 +380,9 @@
 
       // Global variables
       const navbar_bg_color_solid = "rgba(0, 0, 0, 1.0)";
-      const navbar_bg_color_trans = "rgba(0, 0, 0, 0)";
+      var navbar_bg_color_trans = "rgba(0, 0, 0, 0)";
+      if (noHero)
+        navbar_bg_color_trans = "rgba(0, 0, 0, 1.0)";
       const navbar_bg_color_semitrans = "linear-gradient(to bottom, rgb(0, 0, 0, 0.4), rgba(0, 0, 0, 0))";
       const navbar_height = "100px";
       const navbar_height_onscroll = "60px";

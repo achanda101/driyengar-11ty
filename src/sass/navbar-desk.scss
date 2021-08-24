@@ -25,6 +25,9 @@
       rgba(0, 0, 0, 0.01)
     );
   }
+  &.no-hero {
+    background-color: #000;
+  }
   transition: all 0.5s;
   z-index: var(--navbar-z-index);
   // For the home button on the navbar
