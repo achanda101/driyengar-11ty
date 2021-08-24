@@ -28,7 +28,8 @@
 
     .slide-caption {
       max-width: 100%;
-      padding: 14px;
+      padding: 6px 10px;
+      padding-top: 25px;
       background-color: var(--background-color-dark);
       color: var(--light-grey);
       font-family: var(--sans-serif-font-family);
@@ -44,7 +45,7 @@
     // carousel width = 100% of 65vw = 65vw
     // carousel height = 65vw * (650/1300) = 65vw * 0.5 = 32.5vw
     // adding caption box height
-    height: calc(32.5vw + 70px);
+    height: calc(32.5vw + 80px);
     margin: 0 auto;
     .carousel-cell {
       .slide-img {
@@ -54,13 +55,14 @@
       }
     }
     &.no-caption {
-      height: 32.5vw;
+      height: calc(32.5vw + 45px);
       .carousel-cell {
-        height: 32.5vw;
+        // placing the navigation dots below the carousel image
+        height: calc(32.5vw + 45px);
       }
     }
     .carousel-cell {
-      height: calc(32.5vw + 70px);
+      height: calc(32.5vw + 80px);
     }
   }
 
@@ -69,7 +71,7 @@
     // carousel width = 100% of 65vw = 65vw
     // carousel height = 65vw * (600/900) = 65vw * 0.667 = 43.36vw
     // adding caption box height
-    height: calc(43.36vw + 70px);
+    height: calc(43.36vw + 80px);
     margin: 0 auto;
     .carousel-cell {
       .slide-img {
@@ -79,13 +81,13 @@
       }
     }
     &.no-caption {
-      height: 43.36vw;
+      height: calc(43.36vw + 45px);
       .carousel-cell {
-        height: 43.36vw;
+        height: calc(43.36vw + 45px);
       }
     }
     .carousel-cell {
-      height: calc(43.36vw + 70px);
+      height: calc(43.36vw + 80px);
     }
   }
 
@@ -94,7 +96,7 @@
     // carousel width = 80% of 65vw = 52vw
     // carousel height = 52vw * (600/600) = 52vw * 1 = 52vw
     // adding caption box height
-    height: calc(52vw + 70px);
+    height: calc(52vw + 80px);
     margin: 0 auto;
     .carousel-cell {
       .slide-img {
@@ -110,7 +112,7 @@
       }
     }
     .carousel-cell {
-      height: calc(52vw + 70px);
+      height: calc(52vw + 80px);
     }
   }
 
@@ -145,11 +147,11 @@
   }
   /* position dots in carousel */
   .flickity-page-dots {
-    bottom: 80px;
+    bottom: 60px;
   }
   &.no-caption {
     .flickity-page-dots {
-      bottom: 10px;
+      bottom: 15px;
     }
   }
   /* threequarter-white circles */
@@ -159,6 +161,7 @@
     opacity: 1;
     background: transparent;
     border: 1px solid var(--threequarter-white);
+    margin: 0 clamp(2px, 0.5vw, 5px);
   }
   /* fill-in selected dot */
   .flickity-page-dots .dot.is-selected {

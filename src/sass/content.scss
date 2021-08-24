@@ -101,6 +101,7 @@ img {
     background: transparent;
     width: 2em;
     height: 2em;
+    padding-right: 0;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -114,6 +115,16 @@ img {
     content: "\f061";
     border: 2px solid var(--threequarter-white);
     color: var(--threequarter-white);
+  }
+}
+
+.fancy-link.reverse {
+  &::before {
+    content: "\f053";
+    padding-right: 3px;
+  }
+  &:hover::before {
+    content: "\f060";
   }
 }
 
