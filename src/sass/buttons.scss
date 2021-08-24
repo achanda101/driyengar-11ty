@@ -46,12 +46,12 @@ a .button {
 
 .button.--blue {
   background-color: var(--background-color--light);
-  color: var(--dark-grey);
-  border: 2px solid var(--dark-grey);
+  color: var(--light-grey);
+  border: 2px solid var(--slanteddiv-color3);
   &:hover {
     background-color: var(--background-pattern-color);
     color: #fff;
-    border: 2px solid #fff;
+    // border: 2px solid var(--slanteddiv-color3--light);
   }
 }
 

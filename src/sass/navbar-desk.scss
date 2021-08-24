@@ -187,12 +187,23 @@
   padding-left: 1.5em;
   .button {
     background-color: var(--socialmedia-color);
-    border-radius: 15px;
-    margin: 0 4px;
+    background-color: transparent;
+    // border-radius: 15px;
+    padding: 10px 5px;
+    margin: 0 1px;
     // setting margin-left to auto makes the button-bar align right
     margin-left: auto;
     &:last-child {
       margin-right: 0;
+    }
+    &.icon-img {
+      width: 30px;
+      height: 30px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     &.round {
       padding: 6px 10px;
@@ -205,12 +216,12 @@
     }
     a {
       text-decoration: none;
-      color: var(--socialmedia-text-color);
+      // color: var(--socialmedia-text-color);
     }
-    transition: background-color 0.5s;
-    &:hover {
-      background-color: var(--socialmedia-color--light);
-    }
+    // transition: background-color 0.5s;
+    // &:hover {
+    //   background-color: var(--socialmedia-color--light);
+    // }
   }
 }
 

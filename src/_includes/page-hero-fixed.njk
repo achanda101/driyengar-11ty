@@ -80,8 +80,8 @@ noHero: false
   if (heroContent && heroText) {
     let tl = gsap.timeline();
     tl.from(heroContent, { autoAlpha: 0 });
-    // insert exactly 1 seconds from the start of the timeline
-    tl.fromTo(heroText, { alpha: 0 }, { duration: 2, alpha: 1 }, 1);
+    // insert exactly 0 seconds from the start of the timeline
+    tl.fromTo(heroText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
 
     if (heroTagline) {
       // insert at the END of the previous animation
@@ -136,8 +136,8 @@ noHero: false
         let tl = gsap.timeline();
 
         tl.from(heroVideoContent, { autoAlpha: 0 });
-        // insert exactly 2 seconds from the start of the timeline
-        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 2);
+        // insert exactly 0 seconds from the start of the timeline
+        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
         // insert at the END of the previous animation
         tl.fromTo(
           heroVideoTagline,
