@@ -16,6 +16,8 @@
     counter-increment: carousel-cell;
 
     .slide-img {
+      width: 85%;
+      margin: 0 auto;
       img {
         width: 100%;
         height: 100%;
@@ -42,82 +44,57 @@
 
   &.panorama {
     // Image -- width : height = 1330 : 650
-    // carousel width = 100% of 65vw = 65vw
-    // carousel height = 65vw * (650/1300) = 65vw * 0.5 = 32.5vw
+    // carousel width = 100% of 55vw = 55vw
+    // carousel height = 55vw * (650/1300) = 55vw * 0.5 = 27.5vw
     // adding caption box height
-    height: calc(32.5vw + 80px);
+    height: calc(27.5vw + 80px);
     margin: 0 auto;
     .carousel-cell {
       .slide-img {
         img {
-          height: 32.5vw;
+          height: 27.5vw;
         }
       }
     }
     &.no-caption {
-      height: calc(32.5vw + 45px);
+      height: calc(27.5vw + 45px);
       .carousel-cell {
         // placing the navigation dots below the carousel image
-        height: calc(32.5vw + 45px);
+        height: calc(27.5vw + 45px);
       }
     }
     .carousel-cell {
-      height: calc(32.5vw + 80px);
+      height: calc(27.5vw + 80px);
     }
   }
 
   &.standard {
     // Image -- width : height = 900 : 600
-    // carousel width = 100% of 65vw = 65vw
-    // carousel height = 65vw * (600/900) = 65vw * 0.667 = 43.36vw
+    // carousel width = 100% of 55vw = 55vw
+    // carousel height = 55vw * (600/900) = 55vw * 0.667 = 36.69vw
     // adding caption box height
-    height: calc(43.36vw + 80px);
+    height: calc(36.69vw + 80px);
     margin: 0 auto;
     .carousel-cell {
       .slide-img {
         img {
-          height: 43.36vw;
+          height: 36.69vw;
         }
       }
     }
     &.no-caption {
-      height: calc(43.36vw + 45px);
+      height: calc(36.69vw + 45px);
       .carousel-cell {
-        height: calc(43.36vw + 45px);
+        height: calc(36.69vw + 45px);
       }
     }
     .carousel-cell {
-      height: calc(43.36vw + 80px);
-    }
-  }
-
-  &.square {
-    // Image -- width : height = 600 : 600
-    // carousel width = 80% of 65vw = 52vw
-    // carousel height = 52vw * (600/600) = 52vw * 1 = 52vw
-    // adding caption box height
-    height: calc(52vw + 80px);
-    margin: 0 auto;
-    .carousel-cell {
-      .slide-img {
-        img {
-          height: 52vw;
-        }
-      }
-    }
-    &.no-caption {
-      height: 52vw;
-      .carousel-cell {
-        height: 52vw;
-      }
-    }
-    .carousel-cell {
-      height: calc(52vw + 80px);
+      height: calc(36.69vw + 80px);
     }
   }
 
   .flickity-button {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.25);
     border: 2px solid var(--threequarter-white);
     transition: all 0.5s;
     .flickity-button-icon {
