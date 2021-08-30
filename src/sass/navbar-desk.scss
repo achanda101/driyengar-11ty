@@ -42,7 +42,7 @@
     transition: color 0.75s;
   }
   > a:hover {
-    color: var(--socialmedia-color--light);
+    color: var(--accent-color);
   }
 }
 
@@ -76,7 +76,7 @@
         font-size: clamp(14px, 1.2vw, 18px);
         &:hover {
           text-decoration: underline;
-          text-decoration-color: var(--navbar--accent-color);
+          text-decoration-color: var(--accent-color);
           text-underline-offset: 3px;
           text-decoration-thickness: 2px;
         }

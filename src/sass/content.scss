@@ -30,6 +30,13 @@ h5 {
   &:first-child {
     margin-top: 0;
   }
+  &.inline {
+    display: inline-block;
+  }
+  &.heavy {
+    font-weight: bolder;
+    color: var(--accent-color-text-semilight);
+  }
 }
 
 img {
@@ -71,6 +78,13 @@ img {
   }
   i {
     font-size: larger;
+  }
+  &.--white {
+    color: var(--semi-white);
+  }
+  &.--white:hover {
+    color: var(--threequarter-white);
+    border-color: var(--threequarter-white);
   }
 }
 
