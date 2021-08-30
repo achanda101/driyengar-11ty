@@ -8,6 +8,12 @@
   overflow: hidden;
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  -webkit-box-shadow: 0 1px 1px rgba(47, 40, 29, 0.3),
+    0 2px 2px rgba(47, 40, 29, 0.25), 0 4px 4px rgba(47, 40, 29, 0.2),
+    0 8px 8px rgba(47, 40, 29, 0.25), 0 16px 16px rgba(47, 40, 29, 0.1);
+  box-shadow: 0 1px 1px rgba(47, 40, 29, 0.3), 0 2px 2px rgba(47, 40, 29, 0.25),
+    0 4px 4px rgba(47, 40, 29, 0.25), 0 8px 8px rgba(47, 40, 29, 0.2),
+    0 16px 16px rgba(47, 40, 29, 0.1);
 }
 
 /* Then style the iframe to fit in the container div with full height and width */
@@ -25,14 +31,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 3%;
+  border-radius: 10px;
   overflow: hidden;
-  -webkit-box-shadow: 0 1px 1px rgba(4, 13, 41, 0.3),
-    0 2px 2px rgba(4, 13, 41, 0.25), 0 4px 4px rgba(4, 13, 41, 0.2),
-    0 8px 8px rgba(4, 13, 41, 0.25), 0 16px 16px rgba(4, 13, 41, 0.1);
-  box-shadow: 0 1px 1px rgba(4, 13, 41, 0.3), 0 2px 2px rgba(4, 13, 41, 0.25),
-    0 4px 4px rgba(4, 13, 41, 0.25), 0 8px 8px rgba(4, 13, 41, 0.2),
-    0 16px 16px rgba(4, 13, 41, 0.1);
   &.w50 {
     width: 50%;
   }
@@ -46,8 +46,8 @@
     max-width: 100%;
     height: 100%;
     padding: 14px;
-    background-color: var(--background-color-dark);
-    color: var(--light-grey);
+    background-color: var(--accent-color);
+    color: var(--accent-color-text);
     font-family: var(--sans-serif-font-family);
     font-weight: var(--medium-sansserif-font-weight);
     font-size: clamp(12px, 1vw, 16px);

@@ -4,8 +4,13 @@
 
 .flick-carousel {
   width: 100%;
-  background-color: var(--background-color-dark);
-  border-radius: 0 0 10px 10px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-color),
+    var(--accent-color-dark)
+  );
+  // border-radius: 0 0 10px 10px;
+  border-radius: 10px;
 
   .carousel-cell {
     width: 100%;
@@ -32,8 +37,8 @@
       max-width: 100%;
       padding: 6px 10px;
       padding-top: 25px;
-      background-color: var(--background-color-dark);
-      color: var(--light-grey);
+      background-color: transparent;
+      color: var(--accent-color-text);
       font-family: var(--sans-serif-font-family);
       font-weight: var(--medium-sansserif-font-weight);
       font-size: clamp(14px, 1.5vw, 16px);
@@ -102,10 +107,10 @@
     }
   }
   .flickity-button:hover {
-    background: var(--socialmedia-color--light);
-    border: 2px solid var(--hero-button-text-color);
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color-text);
     .flickity-button-icon {
-      fill: var(--light-grey);
+      fill: var(--accent-color-text);
     }
   }
 

@@ -132,19 +132,21 @@ noHero: false
   window.addEventListener(
     "load",
     function () {
-      if (heroVideoText && heroVideoTagline) {
+      if (heroVideoText) {
         let tl = gsap.timeline();
 
         tl.from(heroVideoContent, { autoAlpha: 0 });
         // insert exactly 0 seconds from the start of the timeline
         tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
         // insert at the END of the previous animation
-        tl.fromTo(
-          heroVideoTagline,
-          { y: -30, alpha: 0 },
-          { duration: 2, y: 0, alpha: 1 },
-          ">"
-        );
+        if (heroVideoTagline) {
+          tl.fromTo(
+            heroVideoTagline,
+            { y: -30, alpha: 0 },
+            { duration: 2, y: 0, alpha: 1 },
+            ">"
+          );
+        }
       }
     },
     false

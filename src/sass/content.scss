@@ -53,7 +53,7 @@ img {
   text-decoration: none;
   font-family: var(--sans-serif-font-family);
   font-weight: var(--strong-sansserif-font-weight);
-  color: var(--threequarter-white);
+  color: var(--accent-color-text-semilight);
   transition: all 0.5s;
   padding: 1em 0;
   cursor: pointer;
@@ -66,8 +66,8 @@ img {
     padding: 0;
   }
   &:hover {
-    color: var(--body-text-color);
-    border-color: var(--threequarter-white);
+    color: var(--accent-color-text-light);
+    border-color: var(--accent-color-text-light);
   }
 }
 
@@ -78,7 +78,7 @@ img {
   text-decoration: none;
   font-family: var(--sans-serif-font-family);
   font-weight: var(--strong-sansserif-font-weight);
-  color: var(--threequarter-white);
+  color: var(--accent-color-text-semilight);
   transition: all 0.5s;
   padding-top: 2em;
   padding-left: 2.5em;
@@ -88,8 +88,8 @@ img {
     padding-bottom: 1em;
   }
   &:hover {
-    color: var(--body-text-color);
-    border-color: var(--threequarter-white);
+    color: var(--accent-color-text-light);
+    border-color: var(--accent-color-text-light);
   }
   &::before {
     font-family: "Font Awesome 5 Free";
@@ -101,18 +101,34 @@ img {
     background: transparent;
     width: 2em;
     height: 2em;
+    padding-left: 3px;
     padding-right: 0;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--semi-white);
-    color: var(--semi-white);
+    border: 2px solid var(--accent-color-text-semilight);
+    color: var(--accent-color-text-semilight);
     box-sizing: border-box;
     transition: all 0.5s;
   }
   &:hover::before {
     content: "\f061";
+    border: 2px solid var(--accent-color-text-light);
+    color: var(--accent-color-text-light);
+  }
+  &.--white {
+    color: var(--semi-white);
+  }
+  &.--white:hover {
+    color: var(--threequarter-white);
+    border-color: var(--threequarter-white);
+  }
+  &.--white::before {
+    border: 2px solid var(--semi-white);
+    color: var(--semi-white);
+  }
+  &.--white:hover::before {
     border: 2px solid var(--threequarter-white);
     color: var(--threequarter-white);
   }
