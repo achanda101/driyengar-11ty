@@ -197,10 +197,12 @@
       margin-right: 0;
     }
     &.icon-img {
+      height: 22px;
       width: 30px;
-      height: 30px;
+      border-radius: 5px;
+      overflow: hidden;
       img {
-        width: 100%;
+        width: auto;
         height: 100%;
         object-fit: cover;
       }
