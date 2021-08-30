@@ -69,6 +69,9 @@ img {
     color: var(--accent-color-text-light);
     border-color: var(--accent-color-text-light);
   }
+  i {
+    font-size: larger;
+  }
 }
 
 .fancy-link {
@@ -101,7 +104,7 @@ img {
     background: transparent;
     width: 2em;
     height: 2em;
-    padding-left: 3px;
+    padding-left: 2px;
     padding-right: 0;
     border-radius: 50%;
     display: flex;
@@ -146,9 +149,9 @@ img {
 
 ul {
   list-style-type: circle;
-  background-color: var(--background-color--light);
-  color: var(--threequarter-white);
-  border-radius: 15px;
+  background-color: var(--accent-color);
+  color: var(--accent-color-text);
+  border-radius: 10px;
   margin-top: 0;
   li {
     line-height: 24px;
@@ -160,6 +163,18 @@ ul {
     &:last-of-type {
       padding-bottom: 15px;
     }
+  }
+  .link:hover {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
+  }
+  .fancy-link:hover {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
+  }
+  .fancy-link:hover::before {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
   }
 }
 
