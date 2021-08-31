@@ -366,6 +366,11 @@
         </div>
       </div>
     </footer>
+
+    <div id="scroll-to-top" onclick="scrollToTop()">
+      <i class="fas fa-long-arrow-alt-up"></i>
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -538,6 +543,22 @@
             }
           })
         });
+      }
+
+      const scroll_top_elem = document.querySelector("#scroll-to-top");
+      if (scroll_top_elem) {
+        gsap.to(scroll_top_elem, {
+          display: "block",
+          scrollTrigger: {
+              trigger: "main",
+              toggleActions: "play reset play reset",
+            }
+        });
+      }
+
+      function scrollToTop() {
+        //scroll to 0 pixels down from the top
+        gsap.to(window, {duration: 1, scrollTo: 0});
       }
       
     </script>
