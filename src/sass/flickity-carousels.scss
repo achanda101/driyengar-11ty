@@ -44,6 +44,20 @@
       font-size: clamp(14px, 1.5vw, 16px);
       line-height: clamp(22px, 2vw, 24px);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > * + * {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .text {
+        display: block;
+      }
+      .link {
+        font-size: clamp(12px, 1vw, 14px);
+      }
     }
   }
 
@@ -71,6 +85,10 @@
     .carousel-cell {
       height: calc(27.5vw + 80px);
     }
+    /* position dots in carousel */
+    .flickity-page-dots {
+      bottom: 60px;
+    }
   }
 
   &.standard {
@@ -93,8 +111,24 @@
         height: calc(36.69vw + 45px);
       }
     }
+    &.caption-w-link {
+      height: calc(36.69vw + 100px);
+      .carousel-cell {
+        height: calc(36.69vw + 100px);
+      }
+      .flickity-page-dots {
+        bottom: 80px;
+      }
+      .link {
+        padding-bottom: 0;
+      }
+    }
     .carousel-cell {
       height: calc(36.69vw + 80px);
+    }
+    /* position dots in carousel */
+    .flickity-page-dots {
+      bottom: 60px;
     }
   }
 
@@ -129,7 +163,7 @@
   }
   /* position dots in carousel */
   .flickity-page-dots {
-    bottom: 60px;
+    bottom: 80px;
   }
   &.no-caption {
     .flickity-page-dots {
