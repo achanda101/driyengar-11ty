@@ -28,27 +28,6 @@ noHero: false
     {% endif %}
   </div>
 </div>
-{% endif %} {% if heroType == "video" %}
-<div class="hero-video">
-  <div class="hero-video--content inner-page">
-    {% if heroText %}
-    <div class="hero-video--text">{{ heroText }}</div>
-    {% endif %} {% if heroTagline %}
-    <div class="hero-video--tagline">{{ heroTagline }}</div>
-    {% endif %}
-  </div>
-  <div class="volume-icon">
-    <i class="fas fa-volume-mute"></i>
-  </div>
-  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
-</div>
-{% endif %}
-
-<main>
-  {{ content | safe }}
-</main>
-
-{% if heroType == "image" %}
 <script>
   // Responsive Banner Image
   var heroImage = document.getElementsByClassName("hero-image")[0];
@@ -97,7 +76,60 @@ noHero: false
     }
   }
 </script>
-{% endif %} {% if heroType == "slider" %}
+{% endif %} {% if heroType == "video" %}
+<div class="hero-video">
+  <div class="hero-video--content inner-page">
+    {% if heroText %}
+    <div class="hero-video--text">{{ heroText }}</div>
+    {% endif %} {% if heroTagline %}
+    <div class="hero-video--tagline">{{ heroTagline }}</div>
+    {% endif %}
+  </div>
+  <div class="volume-icon">
+    <i class="fas fa-volume-mute"></i>
+  </div>
+  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
+</div>
+<script>
+  var heroVideo = document.getElementById("heroVideo");
+  var heroVideoContent = document.getElementsByClassName(
+    "hero-video--content"
+  )[0];
+  var heroVideoText = document.getElementsByClassName("hero-video--text")[0];
+  var heroVideoTagline = document.getElementsByClassName(
+    "hero-video--tagline"
+  )[0];
+
+  window.addEventListener(
+    "load",
+    function () {
+      if (heroVideoText) {
+        let tl = gsap.timeline();
+
+        tl.from(heroVideoContent, { autoAlpha: 0 });
+        // insert exactly 0 seconds from the start of the timeline
+        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
+        // insert at the END of the previous animation
+        if (heroVideoTagline) {
+          tl.fromTo(
+            heroVideoTagline,
+            { y: -30, alpha: 0 },
+            { duration: 2, y: 0, alpha: 1 },
+            ">"
+          );
+        }
+      }
+    },
+    false
+  );
+</script>
+{% endif %}
+
+<main>
+  {{ content | safe }}
+</main>
+
+{% if heroType == "slider" %}
 <script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
 <script>
   var vanillaSlideshow = document.getElementById("vanilla-slideshow-container");
@@ -117,38 +149,6 @@ noHero: false
       animationSpeed: "1.75s",
     });
   }
-</script>
-{% endif %} {% if heroType == "video" %}
-<script>
-  var heroVideo = document.getElementById("heroVideo");
-  var heroVideoContent = document.getElementsByClassName(
-    "hero-video--content"
-  )[0];
-  var heroVideoText = document.getElementsByClassName("hero-video--text")[0];
-  var heroVideoTagline = document.getElementsByClassName(
-    "hero-video--tagline"
-  )[0];
-
-  window.addEventListener(
-    "load",
-    function () {
-      if (heroVideoText && heroVideoTagline) {
-        let tl = gsap.timeline();
-
-        tl.from(heroVideoContent, { autoAlpha: 0 });
-        // insert exactly 0 seconds from the start of the timeline
-        tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
-        // insert at the END of the previous animation
-        tl.fromTo(
-          heroVideoTagline,
-          { y: -30, alpha: 0 },
-          { duration: 2, y: 0, alpha: 1 },
-          ">"
-        );
-      }
-    },
-    false
-  );
 </script>
 {% endif %} {% if carousels %}
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

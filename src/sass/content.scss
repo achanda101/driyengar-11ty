@@ -30,6 +30,13 @@ h5 {
   &:first-child {
     margin-top: 0;
   }
+  &.inline {
+    display: inline-block;
+  }
+  &.heavy {
+    font-weight: bolder;
+    color: var(--accent-color-text-semilight);
+  }
 }
 
 img {
@@ -53,7 +60,7 @@ img {
   text-decoration: none;
   font-family: var(--sans-serif-font-family);
   font-weight: var(--strong-sansserif-font-weight);
-  color: var(--threequarter-white);
+  color: var(--accent-color-text-semilight);
   transition: all 0.5s;
   padding: 1em 0;
   cursor: pointer;
@@ -66,7 +73,17 @@ img {
     padding: 0;
   }
   &:hover {
-    color: var(--body-text-color);
+    color: var(--accent-color-text-light);
+    border-color: var(--accent-color-text-light);
+  }
+  i {
+    font-size: larger;
+  }
+  &.--white {
+    color: var(--semi-white);
+  }
+  &.--white:hover {
+    color: var(--threequarter-white);
     border-color: var(--threequarter-white);
   }
 }
@@ -78,7 +95,7 @@ img {
   text-decoration: none;
   font-family: var(--sans-serif-font-family);
   font-weight: var(--strong-sansserif-font-weight);
-  color: var(--threequarter-white);
+  color: var(--accent-color-text-semilight);
   transition: all 0.5s;
   padding-top: 2em;
   padding-left: 2.5em;
@@ -88,8 +105,8 @@ img {
     padding-bottom: 1em;
   }
   &:hover {
-    color: var(--body-text-color);
-    border-color: var(--threequarter-white);
+    color: var(--accent-color-text-light);
+    border-color: var(--accent-color-text-light);
   }
   &::before {
     font-family: "Font Awesome 5 Free";
@@ -101,18 +118,34 @@ img {
     background: transparent;
     width: 2em;
     height: 2em;
+    padding-left: 2px;
     padding-right: 0;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--semi-white);
-    color: var(--semi-white);
+    border: 2px solid var(--accent-color-text-semilight);
+    color: var(--accent-color-text-semilight);
     box-sizing: border-box;
     transition: all 0.5s;
   }
   &:hover::before {
     content: "\f061";
+    border: 2px solid var(--accent-color-text-light);
+    color: var(--accent-color-text-light);
+  }
+  &.--white {
+    color: var(--semi-white);
+  }
+  &.--white:hover {
+    color: var(--threequarter-white);
+    border-color: var(--threequarter-white);
+  }
+  &.--white::before {
+    border: 2px solid var(--semi-white);
+    color: var(--semi-white);
+  }
+  &.--white:hover::before {
     border: 2px solid var(--threequarter-white);
     color: var(--threequarter-white);
   }
@@ -128,11 +161,29 @@ img {
   }
 }
 
+.fancy-link.vertical-fixed {
+  writing-mode: vertical-rl;
+  padding-left: 0;
+  position: fixed;
+  left: 10vw;
+  bottom: 10vh;
+  &::before {
+    left: -0.15em;
+    top: -0.5em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .fancy-link.vertical-fixed {
+    left: 1.5vw;
+  }
+}
+
 ul {
   list-style-type: circle;
-  background-color: var(--background-color--light);
-  color: var(--threequarter-white);
-  border-radius: 15px;
+  background-color: var(--accent-color);
+  color: var(--accent-color-text);
+  border-radius: 10px;
   margin-top: 0;
   li {
     line-height: 24px;
@@ -144,6 +195,18 @@ ul {
     &:last-of-type {
       padding-bottom: 15px;
     }
+  }
+  .link:hover {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
+  }
+  .fancy-link:hover {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
+  }
+  .fancy-link:hover::before {
+    color: var(--accent-color-verylight);
+    border-color: var(--accent-color-verylight);
   }
 }
 

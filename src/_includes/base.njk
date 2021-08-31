@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js" as="script">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500;600&family=Tangerine&family=Satisfy&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500;600&family=Tangerine&family=Vidaloka&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,7 +22,10 @@
     {% endif %}
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
     <link rel="shortcut icon" href="{{ '/img/favicon.png' | url }}" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
   </head>
   <body>
     <!-- TODO Have the full menu structure as a JSON file -->
@@ -250,6 +254,13 @@
               <div class="menulevel-section">
                 <div class="item">
                   <div class="item-name">
+                    <a href="/">
+                      <i class="fas fa-home"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="item-name">
                     <a href="/icfa">ICFA</a>
                   </div>
                 </div>
@@ -293,30 +304,30 @@
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="/press-kit">Press Kit</a>
+                    <a href="/reviews">Reviews</a>
                   </div>
                 </div>
                 <div class="item">
                   <div class="item-name">
-                    <a href="/reviews">Reviews</a>
+                    <a href="/press-kit">Press Kit</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="button-bar">
               <div class="button icon-img">
-                <a href="#">
-                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1629800767/face_book_image_qlkzb6.webp" alt="Facebook Link" loading="lazy">
+                <a href="https://www.facebook.com/Iyengar-Centre-for-FINE-ARTS-293774594468547" target="_blank">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/facebook2_ggrypp.webp" alt="Facebook Link" loading="lazy">
                 </a>
               </div>
               <div class="button icon-img">
-                <a href="#">
-                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1629800766/instagram_image_l8rizb.webp" alt="Instagram Link" loading="lazy">
+                <a href="https://www.instagram.com/icfabengaluru/" target="_blank">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324119/insta2_desu5q.webp" alt="Instagram Link" loading="lazy">
                 </a>
               </div>
               <div class="button icon-img">
-                <a href="#">
-                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1629800767/youtube_image_ymsube.webp" alt="Youtube Link" loading="lazy">
+                <a href="https://www.youtube.com/channel/UCS54iy-nprfzdtoy_xOaHCw" target="_blank">
+                  <img src="https://res.cloudinary.com/driyengar/image/upload/v1630324120/youtube2_tkuk2c.webp" alt="Youtube Link" loading="lazy">
                 </a>
               </div>
             </div>
@@ -329,23 +340,38 @@
 
     <footer>
       <div class="default-footer-content">
-        <div class="contact-info">
+        <div class="footer--section">
           <div>
-            <a href="mailto:ddriyengar@yahoo.com">
-              <i class="far fa-envelope"></i>
-              ddriyengar@yahoo.com
-            </a>
+            <img src="https://res.cloudinary.com/driyengar/image/upload/v1630347573/sri-sri_m8xgmi.png" alt="Sri Sri Ravishankar">
           </div>
-          <div>&#169;{% year %} Seshadri Iyengar, All Rights Reserved</div>
+          <div class="contact-info">
+            <div>
+              <a href="mailto:icfabengaluru@gmail.com" class="link --white">
+                <i class="far fa-envelope"></i> icfabengaluru@gmail.com
+              </a>
+            </div>
+            <div>
+              Photo Credit: <a href="https://www.instagram.com/sathvik_traits_/" class="link --white" target="_blank">
+                <i class="fab fa-instagram"></i> sathvik_traits_
+              </a>
+            </div>
+            <div>&#169;{% year %} Seshadri Iyengar, All Rights Reserved</div>
+          </div>
         </div>
-        <div>
+        <div class="footer--section">
           <img
-            src="https://res.cloudinary.com/driyengar/image/upload/v1507013638/website_images/gods.png"
-            alt="Sri Sri Ravishankar, Lord Ganesha"
+            src="https://res.cloudinary.com/driyengar/image/upload/v1630417726/god-panel_blytpf.webp"
+            alt="A panel of Gods"
           />
         </div>
       </div>
     </footer>
+
+    <div id="scroll-to-top" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+      <div>TOP</div>
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -502,6 +528,40 @@
           if (navBarDeskElem) navBarDeskElem.style.visibility = "visible";
         }
       });
+
+      // GSAP ScrollTrigger for vertical-fixed elements 
+      // and for scroll-to-the-top element
+      gsap.registerPlugin(ScrollTrigger);
+      const vert_fixed_elem_list = document.querySelectorAll(".vertical-fixed");
+      if (vert_fixed_elem_list) {
+        vert_fixed_elem_list.forEach(vf_elem => {
+          gsap.to(vf_elem, {
+            display: "none",
+            scrollTrigger: {
+              trigger: "footer",
+              end: () => `-=${document.querySelector("footer").offsetHeight}`,
+              toggleActions: "play reset play reset"
+            }
+          })
+        });
+      }
+
+      const scroll_top_elem = document.querySelector("#scroll-to-top");
+      if (scroll_top_elem) {
+        gsap.to(scroll_top_elem, {
+          display: "block",
+          scrollTrigger: {
+              trigger: "main",
+              toggleActions: "play reset play reset",
+            }
+        });
+      }
+
+      function scrollToTop() {
+        //scroll to 0 pixels down from the top
+        gsap.to(window, {duration: 1, scrollTo: 0});
+      }
+      
     </script>
   </body>
 </html>

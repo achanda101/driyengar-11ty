@@ -2,8 +2,12 @@
   min-width: 20vw;
   max-width: 28vw;
   height: fit-content;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-color),
+    var(--accent-color-dark)
+  );
+  border-radius: 10px;
   padding: 1em;
 }
 
@@ -22,11 +26,12 @@ textarea {
   padding: 12px 20px;
   margin: 8px 0 18px;
   display: block;
-  border: 1px solid var(--background-pattern-color);
+  border: 1px solid var(--accent-color-light);
   border-radius: 4px;
   box-sizing: border-box;
-  background-color: var(--threequarter-white);
+  background-color: var(--accent-color-verydark);
   font-size: 16px;
+  color: #fff;
 }
 
 textarea {
@@ -37,5 +42,5 @@ label {
   font-size: clamp(14px, 1.2vw, 20px);
   font-family: var(--sans-serif-font-family);
   font-weight: var(--medium-sansserif-font-weight);
-  color: var(--light-grey);
+  color: var(--accent-color-text);
 }

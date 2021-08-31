@@ -108,10 +108,12 @@ noHero: false
     <div class="hero-video--tagline">Dance is beyond "form" and "gender"</div>
     <div class="hero-video--buttons">
       <a href="/icfa">
-        <div class="hero-video--button">Iyengar Centre for Fine Arts</div>
+        <div class="hero-video--button --gold">
+          Iyengar Centre for Fine Arts
+        </div>
       </a>
       <a href="/upcoming-events">
-        <div class="hero-video--button">Upcoming Events</div>
+        <div class="hero-video--button --gold">Upcoming Events</div>
       </a>
     </div>
   </div>
@@ -136,13 +138,7 @@ noHero: false
   </div>
   <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
 </div>
-{% endif %}
 
-<main>
-  {{ content | safe }}
-</main>
-
-{% if heroType == "video" %}
 <script>
   var navBarDeskElem = document.getElementsByClassName("navbar")[1];
   var heroVideo = document.getElementById("heroVideo");
@@ -162,21 +158,29 @@ noHero: false
   window.addEventListener(
     "load",
     function () {
-      if (heroVideoText && heroVideoTagline && heroVideoButtonList) {
+      if (heroVideoText) {
         let tl = gsap.timeline();
-
         tl.from(heroVideoContent, { autoAlpha: 0 });
         // insert exactly 0 seconds from the start of the timeline
         // it is delayed because of the loading of other content (images, YT videos) on the page
         tl.fromTo(heroVideoText, { alpha: 0 }, { duration: 2, alpha: 1 }, 0);
-        // insert at the END of the previous animation
-        tl.fromTo(
-          heroVideoTagline,
-          { y: -30, alpha: 0 },
-          { duration: 2, y: 0, alpha: 1 },
-          ">"
-        );
-        tl.fromTo(heroVideoButtonList, { alpha: 0 }, { duration: 1, alpha: 1 });
+        if (heroVideoTagline) {
+          // insert at the END of the previous animation
+          tl.fromTo(
+            heroVideoTagline,
+            { y: -30, alpha: 0 },
+            { duration: 2, y: 0, alpha: 1 },
+            ">"
+          );
+        }
+        if (heroVideoButtonList) {
+          tl.fromTo(
+            heroVideoButtonList,
+            { alpha: 0 },
+            { duration: 1, alpha: 1 }
+          );
+        }
+
         if (navBarDeskElem) {
           // this solves the FOUC problem (flash of unstyled content)
           tl.from(navBarDeskElem, { duration: 1, autoAlpha: 0 });
@@ -189,7 +193,13 @@ noHero: false
     false
   );
 </script>
-{% endif %} {% if heroType == "slider" %}
+{% endif %}
+
+<main>
+  {{ content | safe }}
+</main>
+
+{% if heroType == "slider" %}
 <script src="{{ '/utils/vanillaSlideshow.min.js' | url }}"></script>
 <script>
   var vanillaSlideshow = document.getElementById("vanilla-slideshow-container");

@@ -1,6 +1,6 @@
 .modal--container {
   position: fixed;
-  top: 15vh;
+  top: calc(var(--navbar-desk-height) + 20px);
   left: 15vw;
   width: 70%;
   z-index: 10;
@@ -16,7 +16,7 @@
 @media only screen and (max-width: 800px) {
   .modal--container {
     width: 90%;
-    top: 12vh;
+    top: calc(var(--navbar-height) + 20px);
     left: 5vw;
   }
 }
@@ -38,8 +38,12 @@
 
 h2.modal--title-box {
   max-width: 100%;
-  background-color: var(--slanteddiv-color2);
-  color: var(--slanteddiv-color3--light);
+  background: linear-gradient(
+    to bottom,
+    var(--accent-color),
+    var(--accent-color-dark)
+  );
+  color: var(--accent-color-text);
   padding: 15px 10px;
   padding-left: 50px;
   margin: 0;
@@ -49,30 +53,22 @@ h2.modal--title-box {
 
 .modal--content {
   padding: 10px;
-  border: 2px solid var(--slanteddiv-color2);
+  border: 2px solid var(--accent-color-dark);
   border-top: none;
-  max-height: 70vh;
+  max-height: 60vh;
   overflow-y: auto;
   h3 {
     margin: 0;
     max-width: 100%;
+    color: var(--accent-color-text);
   }
   p {
     max-width: 100%;
+    color: var(--accent-color-text);
   }
-  //   .modal--image {
-  //     width: 60%;
-  //     height: fit-content;
-  //     margin: 0 auto;
-  //     border-radius: 2%;
-  //     overflow: hidden;
-  //     outline: 1px solid hotpink;
-  //     img {
-  //       width: 100%;
-  //       height: 100%;
-  //       object-fit: cover;
-  //     }
-  //   }
+  ul {
+    background-color: var(--background-color--light);
+  }
 }
 
 @keyframes modalFadeIn {
