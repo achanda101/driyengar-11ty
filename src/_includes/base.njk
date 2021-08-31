@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js" as="script">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +22,10 @@
     {% endif %}
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
     <link rel="shortcut icon" href="{{ '/img/favicon.png' | url }}" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
   </head>
   <body>
     <!-- TODO Have the full menu structure as a JSON file -->
@@ -518,6 +522,25 @@
           if (navBarDeskElem) navBarDeskElem.style.visibility = "visible";
         }
       });
+
+      // GSAP ScrollTrigger for vertical-fixed elements 
+      // and for scroll-to-the-top element
+      gsap.registerPlugin(ScrollTrigger);
+      const vert_fixed_elem_list = document.querySelectorAll(".vertical-fixed");
+      if (vert_fixed_elem_list) {
+        vert_fixed_elem_list.forEach(vf_elem => {
+          gsap.to(vf_elem, {
+            display: "none",
+            scrollTrigger: {
+              trigger: "footer",
+              end: () => `-=${document.querySelector("footer").offsetHeight}`,
+              toggleActions: "play reset play reset",
+              markers: true
+            }
+          })
+        });
+      }
+      
     </script>
   </body>
 </html>

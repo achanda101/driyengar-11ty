@@ -149,6 +149,9 @@ img {
     border: 2px solid var(--threequarter-white);
     color: var(--threequarter-white);
   }
+  &.hidden {
+    visibility: hidden;
+  }
 }
 
 .fancy-link.reverse {
@@ -158,6 +161,24 @@ img {
   }
   &:hover::before {
     content: "\f060";
+  }
+}
+
+.fancy-link.vertical-fixed {
+  writing-mode: vertical-rl;
+  padding-left: 0;
+  position: fixed;
+  left: 10vw;
+  bottom: 10vh;
+  &::before {
+    left: -0.15em;
+    top: -0.5em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .fancy-link.vertical-fixed {
+    left: 1.5vw;
   }
 }
 
