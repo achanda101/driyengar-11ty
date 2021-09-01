@@ -332,7 +332,7 @@
         navbar_bg_color_trans = "rgba(0, 0, 0, 1.0)";
       const navbar_bg_color_semitrans = "linear-gradient(to bottom, rgb(0, 0, 0, 0.6), rgba(0, 0, 0, 0))";
       const navbar_height = "100px";
-      const navbar_height_onscroll = "60px";
+      const navbar_height_onscroll = "70px";
       const navbar_desk_height = "120px";
       const navbar_desk_height_onscroll = "100px";
 
@@ -391,6 +391,7 @@
       });
 
       hamMenuElem.addEventListener("click", () => {
+        let fromTop = window.scrollY;
         if (hamMenuElem.checked) {
           mobileElem.style.backgroundColor = navbar_bg_color_solid;
           navBarMobElem.style.height = navbar_height;
@@ -414,8 +415,13 @@
             mobileElem.style.backgroundColor = navbar_bg_color_solid;
           }
           if (logoImgMob) {
+            if (fromTop < 1) {
               logoImgMob.style.width = "clamp(70px, 6vw, 120px)";
               logoImgMob.style.height = "clamp(70px, 6vw, 120px)";
+            } else {
+              logoImgMob.style.width = "40px";
+              logoImgMob.style.height = "40px";
+            }
           }
           navBarMobElem.style.height = navbar_height;
           document.body.style.overflowY = "auto";
