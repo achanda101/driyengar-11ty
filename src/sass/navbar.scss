@@ -45,7 +45,7 @@ nav .mobile a {
   &.inner-page {
     background: linear-gradient(
       to bottom,
-      rgb(0, 0, 0, 0.4),
+      rgb(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.01)
     );
   }
@@ -53,7 +53,7 @@ nav .mobile a {
   > a {
     font-size: 24px;
     font-family: var(--sans-serif-font-family);
-    color: var(--navbar-item-color);
+    color: var(--accent-color);
     text-decoration: none;
     text-align: center;
     transition: color 0.75s;
@@ -123,29 +123,31 @@ nav input[type="checkbox"],
 }
 
 .mobile ul {
-  background-color: var(--ham-menu-accent-color);
+  background-color: var(--accent-color);
+}
+
+.mobile .multi-level {
+  overflow-y: scroll;
 }
 
 .mobile .multi-level .item > label {
-  border-bottom: 1px solid var(--ham-menu-border-color);
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .mobile .multi-level .item:first-child > label {
-  border-top: 1px solid var(--ham-menu-border-color);
+  border-top: 1px solid var(--accent-color);
 }
 
 .mobile .multi-level .item > .label-plus {
-  border-bottom: 1px solid var(--ham-menu-border-color);
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .mobile .multi-level .item:first-child > .label-plus {
-  border-top: 1px solid var(--ham-menu-border-color);
+  border-top: 1px solid var(--accent-color);
 }
 
 .mobile .item > label {
-  color: var(--ham-menu-item-color);
-  font-weight: 400;
-  //   this makes the label element lie above the arrow
+  //   this makes the label element lie above the chevron
   //   so you can click anywhere on the label
   z-index: calc(var(--navbar-z-index) + 1);
   display: flex;
@@ -163,8 +165,6 @@ nav input[type="checkbox"],
 }
 
 .mobile .multi-level .item > .label-plus {
-  color: var(--ham-menu-item-color);
-  font-weight: 400;
   line-height: 50px;
   z-index: calc(var(--navbar-z-index) + 1);
   display: flex;
@@ -174,7 +174,11 @@ nav input[type="checkbox"],
     flex-grow: 2;
     padding-left: 1.2em;
     text-decoration: none;
-    color: var(--ham-menu-item-color);
+    text-transform: capitalize;
+    color: var(--accent-color);
+    font-family: var(--sans-serif-font-family);
+    font-weight: var(--medium-sansserif-font-weight);
+    font-size: 18px;
   }
 }
 
@@ -185,7 +189,7 @@ nav input[type="checkbox"],
 .mobile .multi-level .item > .label-plus label i {
   padding-right: 2.5em;
   font-size: 0.7em;
-  color: var(--ham-menu-chevron-color);
+  color: var(--accent-color);
   transform: rotate(0deg);
   transform-origin: left;
   transition: transform 0.5s;
@@ -204,10 +208,9 @@ nav input[type="checkbox"],
 #ham-icon,
 #ham-icon::before,
 #ham-icon::after {
-  width: 1.2em;
+  width: 1.7em;
   height: 3px;
-  background: var(--ham-menu-icon-color);
-
+  background: var(--accent-color);
   transition: transform 350ms ease-in-out, opacity 200ms linear;
 }
 
@@ -255,22 +258,19 @@ nav input[type="checkbox"],
   justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
-  background-color: var(--ham-menu-border-color);
+  background-color: var(--accent-color);
   flex-grow: 2;
 }
 
 .mobile .button-bar {
-  padding: 1em 2em 0.5em;
-  &:last-child {
-    padding-bottom: 4em;
-  }
+  // padding: 1em 1.5em 0.5em 1.2em;
+  padding: 0.5em 1.2em;
 
   .button {
-    background-color: var(--ham-menu-bg-color);
+    background-color: transparent;
     border: none;
-    border-radius: 15px;
-    color: var(--ham-menu-icon-color);
-    padding: 4px 16px;
+    padding: 0;
+    color: var(--accent-color-text-dark);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -278,6 +278,16 @@ nav input[type="checkbox"],
     margin-right: 5px;
     margin-bottom: 5px;
     cursor: pointer;
+    &.icon-img {
+      height: 28px;
+      width: 36px;
+      overflow: hidden;
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
     &.round {
       padding: 6px 11px;
       text-align: center;
@@ -285,7 +295,7 @@ nav input[type="checkbox"],
       font-size: 18px;
     }
     a {
-      color: var(--ham-menu-icon-color);
+      color: var(--accent-color-text-dark);
       font-size: 16px;
       text-decoration: none;
       text-transform: uppercase;
