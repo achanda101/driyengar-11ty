@@ -59,7 +59,7 @@ nav .mobile a {
     transition: color 0.75s;
   }
   > a:hover {
-    color: var(--accent-color-1);
+    color: var(--accent-color);
   }
 }
 
@@ -130,20 +130,16 @@ nav input[type="checkbox"],
   overflow-y: scroll;
 }
 
-.mobile .multi-level .item > label {
-  border-bottom: 1px solid var(--accent-color);
-}
-
-.mobile .multi-level .item:first-child > label {
-  border-top: 1px solid var(--accent-color);
-}
+// .mobile .multi-level .item > label {
+//   border-bottom: 1px solid var(--accent-color-text-semilight);
+// }
 
 .mobile .multi-level .item > .label-plus {
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color-text-semilight);
 }
 
-.mobile .multi-level .item:first-child > .label-plus {
-  border-top: 1px solid var(--accent-color);
+#ml1 .item:first-child .label-plus {
+  border-top: 1px solid var(--accent-color-text-semilight);
 }
 
 .mobile .item > label {
