@@ -81,12 +81,12 @@ nav input[type="checkbox"],
   //   display: none;
 }
 
-.mobile #menu:checked ~ .multi-level,
+.mobile #menu:checked ~ .mobile-menu-open .multi-level,
 .mobile .item input:checked ~ ul {
   display: block;
 }
 
-.mobile #menu:checked ~ .button-bars {
+.mobile #menu:checked ~ .mobile-menu-open .button-bars {
   display: flex;
 }
 
