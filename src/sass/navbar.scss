@@ -142,10 +142,6 @@ nav input[type="checkbox"],
   border-top: 1px solid var(--accent-color-text-semilight);
 }
 
-.mobile .multi-level .item > .label-plus {
-  border-bottom: 1px solid var(--accent-color-text-semilight);
-}
-
 .mobile .item > label {
   //   this makes the label element lie above the chevron
   //   so you can click anywhere on the label
