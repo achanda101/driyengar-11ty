@@ -55,3 +55,19 @@
     text-align: center;
   }
 }
+
+// Mobile + Tablet
+@media only screen and (max-width: 800px) {
+  .video-wrapper {
+    border-radius: 0;
+    &.w50 {
+      width: 100%;
+    }
+    &.w45 {
+      width: 80%;
+    }
+    &.w25 {
+      width: 75%;
+    }
+  }
+}

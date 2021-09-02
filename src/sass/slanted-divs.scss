@@ -2,9 +2,12 @@
 .slanted-div {
   position: relative;
   //   padding: 120px 0 180px;
-  padding: 6vw 0 12vw;
+  padding: 12vh 0 15vh;
   overflow: visible;
   z-index: 1;
+  &.--home {
+    padding: 6vw 0 10vw;
+  }
   .section-content {
     display: flex;
     justify-content: space-between;
@@ -135,4 +138,9 @@
     transform-origin: right bottom;
     transform: skewY(3deg);
   }
+}
+
+// mobile + tablet
+@media only screen and (max-width: 800px) {
+  // padding-top: 10vw;
 }
