@@ -67,8 +67,17 @@ nav .mobile a {
   background-color: transparent;
 }
 
+.mobile .mobile-menu-open {
+  min-height: 100vh;
+  background-color: var(--accent-color);
+}
+.mobile .multi-level {
+  background-color: #000;
+}
+
 // Functionality
 nav input[type="checkbox"],
+.mobile .mobile-menu-open,
 .mobile .multi-level,
 .mobile .item ul,
 .mobile .button-bars {
@@ -81,6 +90,7 @@ nav input[type="checkbox"],
   //   display: none;
 }
 
+.mobile #menu:checked ~ .mobile-menu-open,
 .mobile #menu:checked ~ .mobile-menu-open .multi-level,
 .mobile .item input:checked ~ ul {
   display: block;
