@@ -79,27 +79,33 @@
   }
 }
 
+// mobile + tablet
+@media only screen and (max-width: 800px) {
+  .hero-video {
+    .volume-icon {
+      bottom: 12vh;
+      left: 15px;
+      font-size: 20px;
+    }
+  }
+  .hero-video--content {
+    .hero-video--text {
+      font-size: clamp(3rem, 6vw, 36px);
+      text-align: center;
+      &.homepage {
+        font-size: 12vw;
+        line-height: 13vw;
+      }
+    }
+    .hero-video--tagline {
+      text-align: center;
+      font-size: clamp(14px, 4vw, 26px);
+    }
+  }
+}
+
 .hero-misc--content {
-  // this solves the FOUC problem (flash of unstyled content)
-  visibility: hidden;
-  position: absolute;
-  bottom: 10vh;
-  // left position same as padding on logo in navbar
-  left: 4em;
-  z-index: 5;
-  width: 5%;
-  display: flex;
-  flex-direction: column;
-
-  .hero-misc--top {
-    padding-bottom: 50px;
-  }
-
-  .hero-misc--bottom {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+  display: none;
 }
 
 .hero--content {
@@ -124,8 +130,8 @@
     text-align: right;
     font-family: var(--banner-title-font-family);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    font-size: calc(1.75rem + 3.5vw);
-    line-height: calc(2.1rem + 3.5vw);
+    font-size: calc(1.65rem + 3.5vw);
+    line-height: calc(2rem + 3.5vw);
     padding-bottom: 22px;
   }
   .hero--credit {
@@ -147,20 +153,34 @@
     .hero--button {
       padding: 15px 20px;
       margin-left: 20px;
-      background-color: transparent;
-      color: var(--hero-button-text-color);
+      background-color: var(--accent-color);
+      color: var(--accent-color-text);
       text-transform: uppercase;
       font-size: clamp(14px, 1.2vw, 20px);
       font-family: var(--sans-serif-font-family);
       font-weight: var(--medium-sansserif-font-weight);
       border-radius: 8px;
-      border: 2px solid var(--hero-button-border-color);
       transition: all 1s;
       &:hover {
-        background-color: var(--hero-button-hover-color);
-        color: #000;
+        background-color: var(--accent-color-light);
         cursor: pointer;
       }
+    }
+  }
+}
+
+// mobile + tablet
+@media only screen and (max-width: 800px) {
+  .hero--content {
+    width: 100%;
+    right: 0;
+    margin: 0 auto;
+
+    .hero--text {
+      text-align: center;
+    }
+    .hero--tagline {
+      text-align: center;
     }
   }
 }
@@ -262,6 +282,29 @@
           cursor: pointer;
         }
       }
+    }
+  }
+
+  .hero-misc--content {
+    // this solves the FOUC problem (flash of unstyled content)
+    visibility: hidden;
+    position: absolute;
+    bottom: 10vh;
+    // left position same as padding on logo in navbar
+    left: 4em;
+    z-index: 5;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+
+    .hero-misc--top {
+      padding-bottom: 50px;
+    }
+
+    .hero-misc--bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
   }
 }

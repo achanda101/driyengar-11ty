@@ -35,6 +35,20 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .hero-video--buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > * + * {
+      margin-top: 18px;
+    }
+    .hero-video--button {
+      font-size: clamp(14px, 2.5vw, 26px);
+    }
+  }
+}
+
 .button {
   padding: 10px 20px;
   margin: 10px 0;
