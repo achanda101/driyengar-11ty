@@ -10,6 +10,7 @@
   }
   .section-content {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 65%;
@@ -142,5 +143,28 @@
 
 // mobile + tablet
 @media only screen and (max-width: 800px) {
-  // padding-top: 10vw;
+  .slanted-div {
+    &.--home {
+      padding: 16vw 0 20vw;
+    }
+    &.left-facing {
+      flex-wrap: wrap-reverse;
+    }
+    .section-content {
+      flex-direction: column;
+      max-width: 100%;
+      > * + * {
+        margin-top: 5vw;
+      }
+      .section-content--text {
+        width: 80%;
+      }
+      .section-content--img {
+        width: 50%;
+        &.spotlight {
+          width: 70%;
+        }
+      }
+    }
+  }
 }
