@@ -295,6 +295,10 @@
     max-width: 50%;
     height: 100%;
   }
+  &.solo {
+    max-width: 50%;
+    height: 100%;
+  }
   &.center {
     margin: 0 auto;
   }
@@ -321,6 +325,10 @@
     }
     &.half-width {
       max-width: 50%;
+    }
+    &.solo {
+      max-width: 80%;
+      height: 100%;
     }
   }
 }

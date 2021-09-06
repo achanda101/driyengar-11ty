@@ -35,6 +35,7 @@
 
     .slide-caption {
       max-width: 100%;
+      height: max-content;
       padding: 6px 10px;
       padding-top: 20px;
       background-color: transparent;
@@ -195,9 +196,9 @@
     &.panorama {
       // carousel width = 100% of 100vw = 100vw
       // carousel height = 100vw * (650/1300) = 50vw
-      height: calc(50vw + 50px);
+      height: max-content;
       .carousel-cell {
-        height: calc(50vw + 50px);
+        height: max-content;
         .slide-img {
           width: 100%;
           height: 50vw;
@@ -250,15 +251,17 @@
         }
       }
       .flickity-page-dots {
-        bottom: 35px;
+        top: calc(50vw + 30px);
       }
     }
     &.standard {
       // carousel width = 100% of 100vw = 100vw
       // carousel height = 100vw * (600/900) = 100vw * 0.667 = 66.7vw
-      height: calc(66.7vw + 50px);
+      // height: calc(66.7vw + 50px);
+      height: max-content;
       .carousel-cell {
-        height: calc(66.7vw + 50px);
+        // height: calc(66.7vw + 50px);
+        height: max-content;
         .slide-img {
           width: 95%;
           height: 66.7vw;
@@ -269,9 +272,12 @@
         }
       }
       &.no-caption {
-        height: calc(66.7vw + 35px);
+        padding-bottom: 30px;
+        // height: calc(66.7vw + 35px);
+        height: max-content;
         .carousel-cell {
-          height: 66.7vw;
+          // height: 66.7vw;
+          height: max-content;
           .slide-img {
             width: 95%;
             height: 66.7vw;
@@ -281,14 +287,16 @@
             }
           }
         }
-        .flickity-page-dots {
-          bottom: 20px;
-        }
+        // .flickity-page-dots {
+        //   bottom: 20px;
+        // }
       }
       &.caption-w-link {
-        height: calc(66.7vw + 130px);
+        // height: calc(66.7vw + 130px);
+        height: max-content;
         .carousel-cell {
-          height: calc(66.7vw + 130px);
+          // height: calc(66.7vw + 130px);
+          height: max-content;
           .slide-img {
             width: 95%;
             height: 66.7vw;
@@ -297,26 +305,30 @@
               height: 100%;
             }
           }
-          .slide-caption {
-            height: 130px;
-            padding-top: 20px;
-            padding-bottom: 0;
-          }
+          // .slide-caption {
+          //   height: 130px;
+          //   padding-top: 20px;
+          //   padding-bottom: 0;
+          // }
         }
-        .flickity-page-dots {
-          bottom: 100px;
-        }
+        // .flickity-page-dots {
+        //   bottom: 100px;
+        // }
         .link {
           padding-bottom: 0;
         }
       }
       .flickity-page-dots {
-        bottom: 35px;
+        top: calc(66.7vw + 30px);
       }
     }
 
     .flickity-prev-next-button {
       display: none;
+    }
+    .flickity-page-dots .dot {
+      width: 4px;
+      height: 4px;
     }
   }
 }

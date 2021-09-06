@@ -177,7 +177,8 @@ img {
 // mobile & tablet
 @media only screen and (max-width: 800px) {
   .fancy-link.vertical-fixed {
-    left: 1vw;
+    left: 0;
+    bottom: 2px;
     font-size: small;
     &::before {
       border: none;
@@ -342,17 +343,18 @@ ul {
   h3,
   h4,
   h5 {
-    max-width: 80%;
+    max-width: 100%;
+    padding: 0 12px;
   }
 
   h1 {
     font-size: 30px;
   }
   h2 {
-    font-size: 26px;
+    font-size: 24px;
   }
   h3 {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 28px;
     padding-bottom: 1em;
   }
