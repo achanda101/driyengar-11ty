@@ -88,7 +88,11 @@ noHero: false
   <div class="volume-icon">
     <i class="fas fa-volume-mute"></i>
   </div>
-  <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video>
+  <!-- <video src="{{ heroVideo }}" muted loop autoplay id="heroVideo"></video> -->
+  <video muted loop autoplay id="heroVideo">
+    <source id="webm_src" src="{{ heroVideo }}" type="video/webm" />
+    <source id="mp4_src" src="{{ heroVideoMP4 }}" type="video/mp4" />
+  </video>
 </div>
 <script>
   var heroVideo = document.getElementById("heroVideo");
