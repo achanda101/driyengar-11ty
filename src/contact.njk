@@ -17,7 +17,13 @@
   <div class="multi-row-section container">
     <div class="multi-column-section wrap-on-small">
       <div class="contact-form">
-        <form id="contact" name="contact" method="POST">
+        <form
+          id="contact"
+          name="contact"
+          method="POST"
+          data-netlify-recaptcha="true"
+          data-netlify="true"
+        >
           <input type="hidden" name="form-name" value="contact" />
           <label for="name">
             <strong>Name</strong>
@@ -64,6 +70,7 @@
             cols="36"
             required="required"
           ></textarea>
+          <div data-netlify-recaptcha="true"></div>
           <button
             type="submit"
             form="contact"
