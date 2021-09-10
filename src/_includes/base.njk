@@ -493,6 +493,17 @@
     ></script>
 
     <script>
+      $(document).ready(function(){
+        if($("#view_all").length) {
+          $("#view_all").click(function(){
+            $(".old_events").slideToggle();
+            $("#view_all").hide();
+          });
+        }
+      });
+      </script>
+
+    <script>
       var logoImgMob = document.getElementsByClassName("logo-box")[0];
       var logoImgDesk = document.getElementsByClassName("logo-box")[1];
       var mobileElem = document.getElementsByClassName("mobile")[0];
