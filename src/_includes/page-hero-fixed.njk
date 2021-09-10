@@ -11,6 +11,9 @@ noHero: false
   data-hero-image-desk="{{ heroDesk }}"
   data-hero-image-tablet="{{ heroTab }}"
   data-hero-image-mobile="{{ heroMob }}"
+  data-hero-image-webp-desk="{{ heroDeskWebp }}"
+  data-hero-image-webp-tablet="{{ heroTabWebp }}"
+  data-hero-image-webp-mobile="{{ heroMobWebp }}"
   alt="hero image description"
 >
   <div class="hero--content">
@@ -32,22 +35,38 @@ noHero: false
   // Responsive Banner Image
   var heroImage = document.getElementsByClassName("hero-image")[0];
   var heroCredit = document.getElementsByClassName("hero--credit")[0];
+  var hasWebp = false;
+
+  if (Modernizr.webp) {
+    // console.log("webp supported");
+    hasWebp = true;
+  } else {
+    // console.log("webp not supported");
+    hasWebp = false;
+  }
+
   if (heroImage) {
     if (window.innerWidth > 1199) {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageDesk;
+      heroImage.style.backgroundImage = hasWebp
+        ? heroImage.dataset.heroImageWebpDesk
+        : heroImage.dataset.heroImageDesk;
     } else if (window.innerWidth > 599) {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageTablet;
+      heroImage.style.backgroundImage = hasWebp
+        ? heroImage.dataset.heroImageWebpTablet
+        : heroImage.dataset.heroImageTablet;
     } else {
-      heroImage.style.backgroundImage = heroImage.dataset.heroImageMobile;
+      heroImage.style.backgroundImage = hasWebp
+        ? heroImage.dataset.heroImageWebpMobile
+        : heroImage.dataset.heroImageMobile;
     }
   }
   if (heroCredit) {
     if (window.innerWidth > 1199) {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditDesk;
+      heroCredit.innerHTML = "Photo - " + heroCredit.dataset.heroCreditDesk;
     } else if (window.innerWidth > 599) {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditTablet;
+      heroCredit.innerHTML = "Photo - " + heroCredit.dataset.heroCreditTablet;
     } else {
-      heroCredit.innerHTML = "Credit - " + heroCredit.dataset.heroCreditMobile;
+      heroCredit.innerHTML = "Photo - " + heroCredit.dataset.heroCreditMobile;
     }
   }
 
