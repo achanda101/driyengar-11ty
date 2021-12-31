@@ -13,5 +13,5 @@ css
 .DS_Store
 
 # version history kept by vscode
-.history
+.vscode
 
