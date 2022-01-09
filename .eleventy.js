@@ -1,4 +1,4 @@
-const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
+// const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/sass/");
@@ -10,10 +10,10 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-  eleventyConfig.addPlugin(lazyImagesPlugin, {
-    imgSelector: "img", // custom image selector
+  // eleventyConfig.addPlugin(lazyImagesPlugin, {
+    // imgSelector: "img", // custom image selector
     // cacheFile: "", // don't cache results to a file
-  });
+  // });
 
   return {
     dir: {

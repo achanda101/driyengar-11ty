@@ -16,22 +16,19 @@
     "type": "git",
     "url": "git+https://github.com/5t3ph/11ty-sass-skeleton.git"
   },
-  "author": "5t3ph",
+  "author": "achanda101",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "autoprefixer": "^9.8.6",
+    "@11ty/eleventy": "^1.0.0",
+    "autoprefixer": "^10.4.1",
     "cross-env": "^7.0.3",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.14",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.6",
-    "postcss-cli": "^8.3.1",
-    "sass": "^1.32.7"
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.45.2"
   },
   "browserslist": [
     "last 2 versions"
-  ],
-  "devDependencies": {
-    "eleventy-plugin-lazyimages": "^2.1.0"
-  }
+  ]
 }
