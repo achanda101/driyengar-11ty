@@ -195,10 +195,7 @@ noHero: false
     var flktyElemList = document.querySelectorAll(".flick-carousel");
     if (flktyElemList) {
       flktyElemList.forEach((flktyElem) => {
-        var stdFlktyObj = new Flickity(flktyElem, {
-          cellAlign: 'left',
-          contain: true
-        });
+        var stdFlktyObj = new Flickity(flktyElem);
         // This avoids FOUC -- flash of unstyled content
         flktyElem.style.opacity = 1.0;
       });

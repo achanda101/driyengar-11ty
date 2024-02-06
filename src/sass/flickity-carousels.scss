@@ -151,6 +151,7 @@
   }
 
   .flickity-button {
+    opacity: 0;
     background: rgba(0, 0, 0, 0.25);
     border: 2px solid var(--threequarter-white);
     transition: all 0.5s;
@@ -167,6 +168,10 @@
     .flickity-button-icon {
       fill: var(--accent-color-text);
     }
+  }
+
+  .flickity-page-dots {
+    display: none;
   }
 
   .flickity-prev-next-button {
